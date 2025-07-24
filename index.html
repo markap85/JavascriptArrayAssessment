@@ -10,43 +10,39 @@
 
 <body>
 
-    <div class="primary-container">
+    <main class="primary-container">
         <h1>Javascript Array Assessment</h1>
         <div class="main-layout">
-            <div class="left-column">
-                <div class="random-photo">
-                    <img src="https://picsum.photos/700/300" alt="Random Photo">
+            <section class="left-column">
+                <section class="random-photo" aria-label="Random Photo">
+                    <img src="https://picsum.photos/700/300" alt="Randomly selected landscape" id="main-photo">
                     <p id="imagename"></p>
                     <div class="button-container">
-                        <button id="button-random">Random Photo</button>
-                        <button id="button-add">Add to Collection</button>
+                        <button id="button-random" type="button">Random Photo</button>
+                        <button id="button-add" type="button">Add to Collection</button>
                     </div>
-                    <div id="add-warning">Placeholder</div>
-                </div>
-
-                <div class="Email">
+                    <div id="add-warning" aria-live="polite">Placeholder</div>
+                </section>
+                <section class="Email email-collection" aria-label="Create Collection">
                     <h2>Collections</h2>
-                    <div class="email-form">
-                        <input type="email" placeholder="Enter your email">
-                        <button id="button-subscribe">Create</button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="Collections">
+                    <form class="email-form" autocomplete="off" onsubmit="return false;">
+                        <input type="email" placeholder="Enter your email" aria-label="Email address">
+                        <button id="button-subscribe" type="submit">Create</button>
+                    </form>
+                </section>
+            </section>
+            <section class="Collections" aria-label="My Collections">
                 <h2>My Collections</h2>
                 <div class="button-container">
-                    <button id="button-delete-collection">Delete Collection</button>
-                    <button id="button-delete-all">Delete All Images</button>
+                    <button id="button-delete-collection" type="button">Delete Collection</button>
+                    <button id="button-delete-all" type="button">Delete All Images</button>
                 </div>
-
-                <select class="collections-dropdown" style="margin-bottom: 1rem;">
+                <select class="collections-dropdown">
                     <option value="">No collections yet</option>
                 </select>
-
-            </div>
+            </section>
         </div>
-    </div>
+    </main>
 
     <script src="js/randomphoto.js"></script>
     <script src="js/addcollection.js"></script>
