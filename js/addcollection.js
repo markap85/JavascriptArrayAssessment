@@ -17,7 +17,23 @@ document.addEventListener('DOMContentLoaded', function() {
           const warningElem = document.getElementById('add-warning');
           if (warningElem) {
             warningElem.textContent = 'Please select or create a collection first.';
-            warningElem.style.color = 'red';
+            warningElem.style.color = '#dc2626';
+            warningElem.style.background = '#fee2e2'; // soft red
+            warningElem.style.borderRadius = '5px';
+            warningElem.style.padding = '0.5rem 1rem';
+            warningElem.style.marginTop = '0.5rem';
+            warningElem.style.marginBottom = '0.5rem';
+            warningElem.style.transition = 'color 0.3s ease';
+            setTimeout(function() {
+              warningElem.style.color = 'transparent';
+              warningElem.style.backgroundColor = 'transparent';
+              warningElem.style.borderRadius = '5px';
+              warningElem.style.padding = '0.5rem 1rem';
+              warningElem.style.marginTop = '0.5rem';
+              warningElem.style.marginBottom = '0.5rem';
+              warningElem.style.transition = 'color 0.3s ease';
+              warningElem.textContent = 'Placeholder text'; // Reset to placeholder text after 2 seconds
+            }, 2000);
           }
           return;
         }
