@@ -132,13 +132,19 @@ body {
   border-radius: 8px;
   flex: 0 0 auto;
 }
-.Email input {
-  width: 100%;
-  padding: 0.5rem;
+.Email .email-form {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
   margin: 0.5rem 0;
+}
+.Email input {
+  flex: 1;
+  padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+  margin: 0;
 }
 .Email button {
   padding: 0.5rem 1rem;
@@ -147,6 +153,7 @@ body {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  flex-shrink: 0;
 }
 .Email button:hover {
   background-color: #0056b3;

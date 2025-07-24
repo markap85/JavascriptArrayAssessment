@@ -49,7 +49,9 @@ document.addEventListener('DOMContentLoaded', function() {
     subscribeBtn.addEventListener('click', function() {
       const email = emailInput.value.trim();
       // Remove any existing notification or error message
+
       const emailContainer = document.querySelector('.Email');
+      const emailForm = emailContainer.querySelector('.email-form');
       let oldMsg = emailContainer.querySelector('.email-error, .email-success, .email-info');
       if (oldMsg) {
         oldMsg.remove();
@@ -72,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
           notifyMsg.style.color = 'orange';
           notifyMsg.textContent = `Array for ${email} already exists.`;
         }
-        emailContainer.insertBefore(notifyMsg, emailInput);
+        emailContainer.insertBefore(notifyMsg, emailForm);
 
         // Update the Collections section in the DOM
         if (typeof window.updateCollectionsSection === 'function') {
@@ -85,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
         errorMsg.style.color = 'red';
         errorMsg.style.marginBottom = '0.5rem';
         errorMsg.textContent = 'Please enter a valid email.';
-        emailContainer.insertBefore(errorMsg, emailInput);
+        emailContainer.insertBefore(errorMsg, emailForm);
       }
     });
   }

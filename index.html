@@ -1,43 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
-    <title>Document</title>
+    <title>Mark Peters - Javascript Array Assessment</title>
 </head>
+
 <body>
     
     <header>
         <h1>Javascript Array Assessment</h1>
-        <p>This will be my Assessment project.</p>
     </header>
-
 
     <div class="container">
         <div class="main-layout">
             <div class="left-column">
                 <div class="random-photo">
-                    <h2>Random Photo</h2>
-                    <img src="https://picsum.photos/800/600" alt="Random Photo">
-                    <p id="imagename">This is a random photo from Picsum.</p>
+                    <img src="https://picsum.photos/400/300" alt="Random Photo">
+                    <p id="imagename"></p>
                     <div class="button-container">
-                        <button id="button-random">New Photo</button>
-                        <button id="button-add">Add Image to Collection</button>
+                        <button id="button-random">Random Photo</button>
+                        <button id="button-add">Add to Collection</button>
                     </div>
                 </div>
 
                 <div class="Email">
-                    <h2>Email</h2>
-                    <p>Create a New Collection</p>
-                    <input type="email" placeholder="Enter your email">
-                    <button id="button-subscribe">Subscribe</button>
+                    <h2>Collections</h2>
+                    <div class="email-form">
+                        <input type="email" placeholder="Enter your email">
+                        <button id="button-subscribe">Create</button>
+                    </div>
                 </div>
             </div>
             
             <div class="Collections">
-                <h2>Collections</h2>
-                <p>A collection associated with an email</p>
+                <h2>My Collections</h2>
                 <select class="collections-dropdown" style="margin-bottom: 1rem;">
                     <option value="">No collections yet</option>
                 </select>
