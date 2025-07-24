@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
   if (addBtn) {
     addBtn.addEventListener('click', function() {
       // Find the image element in the same container as the button
-      const container = addBtn.closest('.container');
+      const container = addBtn.closest('.primary-container');
       const img = container ? container.querySelector('img') : null;
       if (img && window.emailCollections) {
         // Get selected email from dropdown

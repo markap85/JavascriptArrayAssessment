@@ -8,10 +8,7 @@
     overflow: hidden;
     transition: all 0.3s ease;
 
-    &:hover {
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      transform: translateY(-2px);
-    }
+
   
   img {
     width: 100%;
@@ -30,16 +27,9 @@
 }
 
 #imagename {
-    padding: 1rem;
+    padding: 1rem 0;
     text-align: left;
-    font-size: 0.95rem;
-    background-color: white;
-    color: #555;
-    font-weight: 500;
     margin: 0;
-    border: none;
-    border-radius: 0;
-    max-width: none;
     line-height: 1.4;
 }
 
@@ -49,7 +39,7 @@
     gap: 0.75rem;
     justify-content: stretch;
     margin: 0;
-    padding: 1rem;
+    padding: 1rem 0;
     background: white;
     border-radius: 0 0 12px 12px;
 
@@ -61,8 +51,6 @@
         border: none;
         border-radius: 6px;
         cursor: pointer;
-        font-size: 0.9rem;
-        font-weight: 500;
         transition: all 0.2s ease;
 
         &:hover {

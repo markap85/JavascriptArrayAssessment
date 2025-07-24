@@ -1,3 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Ephesis&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Ephesis&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #111827;
+  margin: 0;
+  padding: 0;
+  background-color: #fafafa;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  color: #111827;
+}
+
+h1 {
+  font-family: "Ephesis", cursive;
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  margin-bottom: 2rem;
+  color: #111827;
+}
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.875rem;
+  }
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+@media (max-width: 768px) {
+  h2 {
+    font-size: 1.25rem;
+  }
+}
+
+p {
+  margin: 0 0 1rem 0;
+  color: #6b7280;
+  line-height: 1.625;
+}
+
+input, textarea, select, button {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+input::-moz-placeholder, textarea::-moz-placeholder, select::-moz-placeholder, button::-moz-placeholder {
+  color: #9ca3af;
+}
+input::placeholder, textarea::placeholder, select::placeholder, button::placeholder {
+  color: #9ca3af;
+}
+
 .primary-container {
   width: 100%;
   max-width: 1400px;
@@ -6,19 +78,6 @@
   box-sizing: border-box;
   background: #fafafa;
   min-height: 100vh;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  line-height: 1.6;
-  background-color: #fafafa;
-  color: #111;
 }
 
 .clearfix::after {
@@ -59,14 +118,9 @@ body {
 .Collections h2 {
   margin-top: 0;
   margin-bottom: 1rem;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #111;
 }
 .Collections p {
-  color: #666;
   margin-bottom: 1.5rem;
-  font-size: 0.95rem;
 }
 .Collections .collections-dropdown {
   width: 100%;
@@ -74,7 +128,6 @@ body {
   border: 1px solid #ddd;
   border-radius: 8px;
   margin-bottom: 1.5rem;
-  font-size: 0.95rem;
   background: white;
 }
 .Collections .collections-dropdown:focus {
@@ -90,7 +143,6 @@ body {
 .Collections .button-container button {
   background: #f5f5f5;
   color: #333;
-  font-size: 0.85rem;
   padding: 0.6rem 1rem;
 }
 .Collections .button-container button:hover {
@@ -113,9 +165,6 @@ body {
 .Email h2 {
   margin-top: 0;
   margin-bottom: 0.5rem;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #111;
 }
 .Email .email-form {
   display: flex;
@@ -130,17 +179,10 @@ body {
   border-radius: 8px;
   box-sizing: border-box;
   margin: 0;
-  font-size: 0.95rem;
 }
 .Email input:focus {
   outline: none;
   border-color: #000;
-}
-.Email input::-moz-placeholder {
-  color: #999;
-}
-.Email input::placeholder {
-  color: #999;
 }
 .Email button {
   padding: 0.75rem 1.5rem;
@@ -150,8 +192,6 @@ body {
   border-radius: 8px;
   cursor: pointer;
   flex-shrink: 0;
-  font-size: 0.95rem;
-  font-weight: 500;
   transition: all 0.2s ease;
 }
 .Email button:hover {
@@ -164,30 +204,21 @@ body {
 
 header {
   background-color: white;
-  color: #111;
   padding: 2rem 0;
   text-align: center;
   border-bottom: 1px solid #eee;
   margin-bottom: 2rem;
 }
 header h1 {
-  font-size: 2.5rem;
   margin: 0;
-  color: #111;
-  font-weight: 700;
-  letter-spacing: -0.02em;
 }
 header nav {
   margin-top: 1rem;
 }
 header nav a {
-  color: #666;
-  text-decoration: none;
   margin: 0 1rem;
-  font-weight: 500;
 }
 header nav a:hover {
-  color: #111;
   text-decoration: none;
 }
 
@@ -200,10 +231,6 @@ header nav a:hover {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: all 0.3s ease;
-}
-.random-photo:hover {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  transform: translateY(-2px);
 }
 .random-photo img {
   width: 100%;
@@ -221,16 +248,9 @@ header nav a:hover {
 }
 
 #imagename {
-  padding: 1rem;
+  padding: 1rem 0;
   text-align: left;
-  font-size: 0.95rem;
-  background-color: white;
-  color: #555;
-  font-weight: 500;
   margin: 0;
-  border: none;
-  border-radius: 0;
-  max-width: none;
   line-height: 1.4;
 }
 
@@ -240,7 +260,7 @@ header nav a:hover {
   gap: 0.75rem;
   justify-content: stretch;
   margin: 0;
-  padding: 1rem;
+  padding: 1rem 0;
   background: white;
   border-radius: 0 0 12px 12px;
 }
@@ -252,8 +272,6 @@ header nav a:hover {
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 0.9rem;
-  font-weight: 500;
   transition: all 0.2s ease;
 }
 .button-container button:hover {
@@ -268,4 +286,74 @@ header nav a:hover {
 }
 .button-container button#button-delete-collection:hover, .button-container button#button-delete-all:hover {
   background-color: #dc2626;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #111827;
+  margin: 0;
+  padding: 0;
+  background-color: #fafafa;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  color: #111827;
+}
+
+h1 {
+  font-family: "Ephesis", cursive;
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  margin-bottom: 2rem;
+  color: #111827;
+}
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.875rem;
+  }
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+@media (max-width: 768px) {
+  h2 {
+    font-size: 1.25rem;
+  }
+}
+
+p {
+  margin: 0 0 1rem 0;
+  color: #6b7280;
+  line-height: 1.625;
+}
+
+input, textarea, select, button {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+input::-moz-placeholder, textarea::-moz-placeholder, select::-moz-placeholder, button::-moz-placeholder {
+  color: #9ca3af;
+}
+input::placeholder, textarea::placeholder, select::placeholder, button::placeholder {
+  color: #9ca3af;
 }/*# sourceMappingURL=styles.css.map */
