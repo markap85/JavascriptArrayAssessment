@@ -79,12 +79,6 @@ input::placeholder, textarea::placeholder, select::placeholder, button::placehol
   min-height: 100vh;
 }
 
-.clearfix::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
 .main-layout {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
@@ -103,6 +97,12 @@ input::placeholder, textarea::placeholder, select::placeholder, button::placehol
   flex-direction: column;
   gap: 2rem;
   grid-column: 1;
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 header {

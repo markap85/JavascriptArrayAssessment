@@ -9,13 +9,6 @@
     min-height: 100vh;
 }
 
-// Clear fix utility
-.clearfix::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
 // Layout styles for the new structure
 .main-layout {
   display: grid;
@@ -35,6 +28,15 @@
   gap: 2rem;
   grid-column: 1;
 }
+
+// Clear fix utility
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
 
 
 

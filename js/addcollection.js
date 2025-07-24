@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const addBtn = document.getElementById('button-add');
   if (addBtn) {
     addBtn.addEventListener('click', function() {
+      const originalText = addBtn.textContent;
+      addBtn.textContent = 'Adding...';
       // Find the image element in the same container as the button
       const container = addBtn.closest('.primary-container');
       const img = container ? container.querySelector('img') : null;
@@ -46,6 +48,12 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log(`Added image id ${id} to ${selectedEmail}`);
             if (typeof window.updateCollectionsSection === 'function') {
               window.updateCollectionsSection();
+              // Wait 2 seconds before reverting button text
+              setTimeout(function() {
+                addBtn.textContent = originalText;
+              }, 1000);
+            } else {
+              addBtn.textContent = originalText;
             }
           } else {
             console.log('No array found for selected email.');
@@ -54,9 +62,11 @@ document.addEventListener('DOMContentLoaded', function() {
         if (imageId) {
           addImageToCollection(imageId);
         } else {
+          addBtn.textContent = originalText;
           console.log('No image id found on image element.');
         }
       } else {
+        addBtn.textContent = originalText;
         console.log('No image or email array available.');
       }
     });
