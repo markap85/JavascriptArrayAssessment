@@ -68,17 +68,21 @@ document.addEventListener('DOMContentLoaded', function() {
           notifyMsg.className = 'email-success';
           notifyMsg.style.color = 'green';
           notifyMsg.textContent = `Created new array for: ${email}`;
+          emailContainer.insertBefore(notifyMsg, emailForm);
+          // Update the Collections section and force select the new collection
+          if (typeof window.updateCollectionsSection === 'function') {
+            window.updateCollectionsSection(email);
+          }
         } else {
           window.lastCreatedEmail = email;
           notifyMsg.className = 'email-info';
           notifyMsg.style.color = 'orange';
           notifyMsg.textContent = `Array for ${email} already exists.`;
-        }
-        emailContainer.insertBefore(notifyMsg, emailForm);
-
-        // Update the Collections section in the DOM
-        if (typeof window.updateCollectionsSection === 'function') {
-          window.updateCollectionsSection();
+          emailContainer.insertBefore(notifyMsg, emailForm);
+          // Just update the Collections section (no force select)
+          if (typeof window.updateCollectionsSection === 'function') {
+            window.updateCollectionsSection();
+          }
         }
       } else {
         // Inject error message above the subscribe box
@@ -94,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Global function to update the Collections section with dropdown
-window.updateCollectionsSection = function() {
+window.updateCollectionsSection = function(forceSelectEmail) {
   const collectionsSection = document.querySelector('.Collections');
   if (!collectionsSection) return;
 
@@ -142,8 +146,10 @@ window.updateCollectionsSection = function() {
       dropdown.appendChild(option);
     });
 
-    // Set dropdown to previous selection if possible, else lastCreatedEmail, else first
-    if (prevSelected && prevSelected !== '' && emails.includes(prevSelected)) {
+    // Set dropdown to forced selection (for new collection), previous selection, lastCreatedEmail, or first
+    if (forceSelectEmail && emails.includes(forceSelectEmail)) {
+      dropdown.value = forceSelectEmail;
+    } else if (prevSelected && prevSelected !== '' && emails.includes(prevSelected)) {
       dropdown.value = prevSelected;
     } else if (window.lastCreatedEmail && emails.includes(window.lastCreatedEmail)) {
       dropdown.value = window.lastCreatedEmail;
@@ -202,9 +208,9 @@ window.updateCollectionsSection = function() {
         removeBtn.addEventListener('click', function(e) {
           e.stopPropagation();
           window.emailCollections[selectedEmail].splice(idx, 1);
-          if (typeof window.updateCollectionsSection === 'function') {
-            window.updateCollectionsSection();
-          }
+        if (typeof window.updateCollectionsSection === 'function') {
+          window.updateCollectionsSection(window.lastCreatedEmail);
+        }
         });
 
         imgWrapper.appendChild(img);
