@@ -61,17 +61,12 @@ document.addEventListener('DOMContentLoaded', function() {
       const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (email && emailPattern.test(email)) {
         let notifyMsg = document.createElement('div');
-        notifyMsg.style.marginTop = '0.5rem';
         if (!window.emailCollections[email]) {
           window.emailCollections[email] = [];
           window.lastCreatedEmail = email;
           notifyMsg.className = 'email-success';
-          notifyMsg.style.background = '#48bb78'; // soft green
-          notifyMsg.style.color = 'white';
-          notifyMsg.style.borderRadius = '5px';
-          notifyMsg.style.padding = '0.5rem 1rem';
           notifyMsg.textContent = `Created new collection for: ${email}`;
-          emailContainer.appendChild(notifyMsg); // Insert after the subscribe box
+          emailContainer.appendChild(notifyMsg);
           // Update the Collections section and force select the new collection
           if (typeof window.updateCollectionsSection === 'function') {
             window.updateCollectionsSection(email);
@@ -85,12 +80,8 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
           window.lastCreatedEmail = email;
           notifyMsg.className = 'email-info';
-          notifyMsg.style.background = '#f6ad55'; // soft orange
-          notifyMsg.style.color = '#333';
-          notifyMsg.style.borderRadius = '5px';
-          notifyMsg.style.padding = '0.5rem 1rem';
           notifyMsg.textContent = `Collection for ${email} already exists.`;
-          emailContainer.appendChild(notifyMsg); // Insert after the subscribe box
+          emailContainer.appendChild(notifyMsg);
           // Just update the Collections section (no force select)
           if (typeof window.updateCollectionsSection === 'function') {
             window.updateCollectionsSection();
@@ -106,13 +97,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Inject error message after the subscribe box
         let errorMsg = document.createElement('div');
         errorMsg.className = 'email-error';
-        errorMsg.style.background = '#fee2e2'; // soft red
-        errorMsg.style.color = '#dc2626';
-        errorMsg.style.borderRadius = '5px';
-        errorMsg.style.padding = '0.5rem 1rem';
-        errorMsg.style.marginTop = '0.5rem';
         errorMsg.textContent = 'Please enter a valid email.';
-        emailContainer.appendChild(errorMsg); // Insert after the subscribe box
+        emailContainer.appendChild(errorMsg);
         // Auto-remove error message after 3 seconds
         setTimeout(() => {
           if (errorMsg.parentNode) {

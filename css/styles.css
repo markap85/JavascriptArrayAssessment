@@ -1,4 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Ephesis&display=swap");
+#add-warning, .email-error, .email-info, .email-success {
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -215,14 +221,22 @@ input::placeholder, textarea::placeholder, select::placeholder, button::placehol
   background-color: rgba(188.842364532, 16.157635468, 16.157635468, 0.5568627451);
 }
 
-#add-warning {
-  color: transparent;
-  background: transparent;
-  border-radius: 5px;
-  padding: 0.5rem 1rem;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  transition: color 0.3s ease;
+.already-in-library {
+  opacity: 0.6 !important;
+  background: #e5e7eb !important;
+  color: #6b7280 !important;
+  border-color: #d1d5db !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, opacity 0.2s !important;
+}
+.already-in-library:hover {
+  background: #e5e7eb !important;
+  color: #6b7280 !important;
+  transform: none !important;
+}
+.already-in-library:active {
+  transform: none !important;
 }
 
 .Email {
@@ -333,37 +347,15 @@ input::placeholder, textarea::placeholder, select::placeholder, button::placehol
     flex-direction: row;
   }
 }
-.Collections .button-container button {
-  background: #f5f5f5;
-  color: #333;
-  padding: 0.75rem 1rem;
-  font-size: 0.9rem;
-}
-@media (min-width: 480px) {
-  .Collections .button-container button {
-    padding: 0.6rem 1rem;
-    font-size: 1rem;
-  }
-}
-.Collections .button-container button:hover {
-  background: #e5e5e5;
-}
-.Collections .button-container button#button-delete-collection, .Collections .button-container button#button-delete-all {
+.Collections .button-container #button-delete-collection,
+.Collections .button-container #button-delete-all {
   background-color: #fef2f2;
-  color: #dc2626;
+  color: rgba(239, 68, 68, 0.5568627451);
 }
-.Collections .button-container button#button-delete-collection:hover, .Collections .button-container button#button-delete-all:hover {
-  background-color: #fee2e2;
-}
-
-.already-in-library {
-  opacity: 0.6;
-  background: #e5e7eb !important;
-  color: #6b7280 !important;
-  border-color: #909192 !important;
-  transition: background 0.2s, color 0.2s, border-color 0.2s, opacity 0.2s;
-  cursor: not-allowed;
-  pointer-events: none;
+.Collections .button-container #button-delete-collection:hover,
+.Collections .button-container #button-delete-all:hover {
+  background-color: rgba(188.842364532, 16.157635468, 16.157635468, 0.5568627451);
+  color: #ffffff;
 }
 
 .collections-list {
@@ -453,35 +445,31 @@ input::placeholder, textarea::placeholder, select::placeholder, button::placehol
   transform: scale(0.95);
 }
 
+.email-success {
+  background: #10b981;
+  color: #ffffff;
+}
+
+.email-info {
+  background: #f59e0b;
+  color: #111827;
+}
+
+.email-error {
+  background: #dc2626;
+  color: #ffffff;
+}
+
 #add-warning {
-  border-radius: 5px;
-  padding: 0.5rem 1rem;
-  margin: 0.5rem 0;
+  color: transparent;
+  background: transparent;
   transition: color 0.3s ease;
 }
 #add-warning.warning-visible {
-  color: #dc2626;
-  background: #fee2e2;
+  background: #dc2626;
+  color: #ffffff;
 }
 #add-warning.warning-hidden {
   color: transparent;
   background: transparent;
-}
-
-.already-in-library {
-  opacity: 0.6 !important;
-  background: #e5e7eb !important;
-  color: #6b7280 !important;
-  border-color: #d1d5db !important;
-  cursor: not-allowed !important;
-  pointer-events: none !important;
-  transition: background 0.2s, color 0.2s, border-color 0.2s, opacity 0.2s !important;
-}
-.already-in-library:hover {
-  background: #e5e7eb !important;
-  color: #6b7280 !important;
-  transform: none !important;
-}
-.already-in-library:active {
-  transform: none !important;
 }/*# sourceMappingURL=styles.css.map */

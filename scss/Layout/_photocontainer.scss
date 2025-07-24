@@ -86,12 +86,26 @@
     }
 }
 
-#add-warning {
-    color: transparent;
-    background: transparent;
-    border-radius: 5px;
-    padding: 0.5rem 1rem;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    transition: color 0.3s ease;
+
+
+// Already in library button state
+.already-in-library {
+  opacity: 0.6 !important;
+  background: #e5e7eb !important;
+  color: #6b7280 !important;
+  border-color: #d1d5db !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, opacity 0.2s !important;
+  
+  // Override any hover effects when disabled
+  &:hover {
+    background: #e5e7eb !important;
+    color: #6b7280 !important;
+    transform: none !important;
+  }
+  
+  &:active {
+    transform: none !important;
+  }
 }

@@ -1,92 +1,53 @@
-// Collections Section - Mobile First
 .Collections {
-  padding: 1rem; // Mobile: add padding
-  grid-column: 1; // Mobile: single column
+  padding: 1rem;
+  grid-column: 1;
   height: fit-content;
-  
-  // Tablet and up: move to second column
   @media (min-width: 969px) {
     padding: 0 2rem;
     grid-column: 2;
   }
-  
   h2 {
     margin-top: 0;
     margin-bottom: 1rem;
   }
-  
   p {
     margin-bottom: 1.5rem;
   }
-  
   .collections-dropdown {
     width: 100%;
     padding: 0.75rem;
     border: 1px solid $text-secondary;
-    border-radius: 8px; // Mobile: consistent radius
+    border-radius: 8px;
     margin-bottom: 1.5rem;
     background: $white;
-    font-size: 1rem; // Mobile: ensure readable size
-    
-    // Tablet and up
+    font-size: 1rem;
     @media (min-width: 769px) {
       border-radius: 0 12px 0 0;
     }
-    
     &:focus {
       outline: none;
       border-color: $black;
     }
   }
-  
   .button-container {
     padding: 0;
     margin-bottom: 1rem;
     background: transparent;
     border-radius: 0;
     gap: 0.5rem;
-    flex-direction: column; // Mobile: stack buttons
-    
-    // Tablet and up: side-by-side
+    flex-direction: column;
+
     @media (min-width: 480px) {
       flex-direction: row;
     }
-    
-    button {
-      background: #f5f5f5;
-      color: #333;
-      padding: 0.75rem 1rem; // Mobile: more padding for touch
-      font-size: 0.9rem; // Mobile: slightly smaller text
-      
-      // Tablet and up
-      @media (min-width: 480px) {
-        padding: 0.6rem 1rem;
-        font-size: 1rem;
-      }
-      
+    #button-delete-collection,
+    #button-delete-all {
+      background-color: $red-light;
+      color: $red;
       &:hover {
-        background: #e5e5e5;
-      }
-      
-      &#button-delete-collection,
-      &#button-delete-all {
-        background-color: #fef2f2;
-        color: #dc2626;
-        
-        &:hover {
-          background-color: #fee2e2;
-        }
+        background-color: $red-hover;
+        color: $white;
       }
     }
   }
-}
-
-.already-in-library {
-  opacity: 0.6;
-  background: #e5e7eb !important;
-  color: #6b7280 !important;
-  border-color: #909192 !important;
-  transition: background 0.2s, color 0.2s, border-color 0.2s, opacity 0.2s;
-  cursor: not-allowed;
-  pointer-events: none;
 }

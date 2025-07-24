@@ -1,0 +1,38 @@
+// Collections Warning on Create new Collection
+
+.email-success {
+  background: $success;
+  color: $white;
+  @extend %notification-base;
+}
+
+.email-info {
+  background: $warning;
+  color: $text-primary;
+  @extend %notification-base;
+}
+
+.email-error {
+  background: $error;
+  color: $white;
+  @extend %notification-base;
+}
+
+// Add to Collection / No Collection Warning
+
+#add-warning {
+    color: transparent;
+    background: transparent;
+    @extend %notification-base;
+    transition: color 0.3s ease;
+
+  &.warning-visible {
+    background: $error;
+    color: $white;
+  }
+
+  &.warning-hidden {
+    color: transparent;
+    background: transparent;
+  }
+}

@@ -1,77 +1,62 @@
-// Collections List - Mobile First
 .collections-list {
   list-style: none;
   padding: 0;
   margin: 0;
-  
   li {
     margin-bottom: 1rem;
     font-weight: 500;
     color: $text-primary;
   }
-  
   .image-grid {
     display: grid;
-    grid-template-columns: 1fr; // Mobile: single column
-    gap: 12px; // Mobile: larger gap for touch
+    grid-template-columns: 1fr;
+    gap: 12px;
     margin-top: 0.5rem;
-    
-    // Small screens: 2 columns
     @media (min-width: 480px) {
       grid-template-columns: repeat(2, 1fr);
       gap: 8px;
     }
-    
-    // Tablet and up: flexible columns
     @media (min-width: 769px) {
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     }
   }
-  
   .image-wrapper {
     position: relative;
-    display: block; // Mobile: block for better touch targets
+    display: block;
     border-radius: 6px;
     overflow: hidden;
     transition: transform 0.2s ease;
-    
     &:hover {
       transform: scale(1.02);
     }
-    
     img {
-      width: 100%; // Mobile: full width of container
-      height: 120px; // Mobile: taller for better ratio
+      width: 100%;
+      height: 120px;
       object-fit: cover;
       display: block;
-      
-      // Tablet and up
       @media (min-width: 769px) {
         width: 200px;
         height: 100px;
       }
     }
-    
     .remove-btn {
       position: absolute;
-      top: 6px; // Mobile: larger touch target
+      top: 6px;
       right: 6px;
-      background: rgba($black, 0.8); // Mobile: more opaque for visibility
+      background: rgba($black, 0.8);
       color: $white;
       border: none;
       border-radius: 50%;
-      width: 24px; // Mobile: larger for touch
+      width: 24px;
       height: 24px;
       cursor: pointer;
-      font-size: 14px; // Mobile: larger text
+      font-size: 14px;
       line-height: 1;
       padding: 0;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: all 0.2s ease;
-      
-      // Tablet and up
       @media (min-width: 769px) {
         top: 4px;
         right: 4px;
@@ -80,12 +65,10 @@
         font-size: 12px;
         background: rgba($black, 0.7);
       }
-      
       &:hover {
         background: rgba($red, 1);
         transform: scale(1.1);
       }
-      
       &:active {
         transform: scale(0.95);
       }
@@ -93,42 +76,6 @@
   }
 }
 
-// Warning message styles
-#add-warning {
-  border-radius: 5px;
-  padding: 0.5rem 1rem;
-  margin: 0.5rem 0;
-  transition: color 0.3s ease;
 
-  &.warning-visible {
-    color: #dc2626;
-    background: #fee2e2;
-  }
 
-  &.warning-hidden {
-    color: transparent;
-    background: transparent;
-  }
-}
 
-// Already in library button state
-.already-in-library {
-  opacity: 0.6 !important;
-  background: #e5e7eb !important;
-  color: #6b7280 !important;
-  border-color: #d1d5db !important;
-  cursor: not-allowed !important;
-  pointer-events: none !important;
-  transition: background 0.2s, color 0.2s, border-color 0.2s, opacity 0.2s !important;
-  
-  // Override any hover effects when disabled
-  &:hover {
-    background: #e5e7eb !important;
-    color: #6b7280 !important;
-    transform: none !important;
-  }
-  
-  &:active {
-    transform: none !important;
-  }
-}

@@ -6,9 +6,15 @@ $black: #000000;
 $black-hover: lighten($black, 20%);
 
 $red: #ef44448e;
+$red-light: #fef2f2;
 $red-hover: darken($red, 20%);
 
 $grey: #b1b1b1;
 
 $text-primary: #111827;
 $text-secondary: #6b7280;
+
+
+$success: #10b981;
+$warning: #f59e0b;
+$error: #dc2626;
