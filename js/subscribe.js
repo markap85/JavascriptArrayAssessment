@@ -76,6 +76,12 @@ document.addEventListener('DOMContentLoaded', function() {
           if (typeof window.updateCollectionsSection === 'function') {
             window.updateCollectionsSection(email);
           }
+          // Auto-remove success message after 3 seconds
+          setTimeout(() => {
+            if (notifyMsg.parentNode) {
+              notifyMsg.remove();
+            }
+          }, 3000);
         } else {
           window.lastCreatedEmail = email;
           notifyMsg.className = 'email-info';
@@ -89,6 +95,12 @@ document.addEventListener('DOMContentLoaded', function() {
           if (typeof window.updateCollectionsSection === 'function') {
             window.updateCollectionsSection();
           }
+          // Auto-remove info message after 3 seconds
+          setTimeout(() => {
+            if (notifyMsg.parentNode) {
+              notifyMsg.remove();
+            }
+          }, 3000);
         }
       } else {
         // Inject error message after the subscribe box
@@ -101,6 +113,12 @@ document.addEventListener('DOMContentLoaded', function() {
         errorMsg.style.marginTop = '0.5rem';
         errorMsg.textContent = 'Please enter a valid email.';
         emailContainer.appendChild(errorMsg); // Insert after the subscribe box
+        // Auto-remove error message after 3 seconds
+        setTimeout(() => {
+          if (errorMsg.parentNode) {
+            errorMsg.remove();
+          }
+        }, 3000);
       }
     });
   }
