@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
     addBtn.addEventListener('click', function() {
       const originalText = addBtn.textContent;
       addBtn.textContent = 'Adding...';
+      // Mark that add was just pressed and not reset by random photo
+      addBtn.dataset.added = 'true';
       // Find the image element in the same container as the button
       const container = addBtn.closest('.primary-container');
       const img = container ? container.querySelector('img') : null;
@@ -50,10 +52,14 @@ document.addEventListener('DOMContentLoaded', function() {
               window.updateCollectionsSection();
               // Wait 2 seconds before reverting button text
               setTimeout(function() {
-                addBtn.textContent = originalText;
-              }, 1000);
+                addBtn.textContent = 'Add again?';
+                addBtn.dataset.added = 'already';
+                addBtn.classList.add('already-in-library');
+              }, 2000);
             } else {
-              addBtn.textContent = originalText;
+              addBtn.textContent = 'Add again?';
+              addBtn.dataset.added = 'already';
+              addBtn.classList.add('already-in-library');
             }
           } else {
             console.log('No array found for selected email.');
@@ -63,11 +69,26 @@ document.addEventListener('DOMContentLoaded', function() {
           addImageToCollection(imageId);
         } else {
           addBtn.textContent = originalText;
+          addBtn.dataset.added = '';
+          addBtn.classList.remove('already-in-library');
           console.log('No image id found on image element.');
         }
       } else {
         addBtn.textContent = originalText;
+        addBtn.dataset.added = '';
+        addBtn.classList.remove('already-in-library');
         console.log('No image or email array available.');
+      }
+    });
+  }
+  // Listen for random photo button click to reset addBtn
+  const randomBtn = document.getElementById('button-random');
+  if (randomBtn) {
+    randomBtn.addEventListener('click', function() {
+      if (addBtn) {
+        addBtn.textContent = 'Add to Collection';
+        addBtn.dataset.added = '';
+        addBtn.classList.remove('already-in-library');
       }
     });
   }

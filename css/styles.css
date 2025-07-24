@@ -293,6 +293,14 @@ header nav a:hover {
   background-color: #fee2e2;
 }
 
+.already-in-library {
+  opacity: 0.6;
+  background: #e5e7eb !important;
+  color: #6b7280 !important;
+  border-color: #909192 !important;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, opacity 0.2s;
+}
+
 .collections-list {
   list-style: none;
   padding: 0;
