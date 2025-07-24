@@ -178,41 +178,23 @@ window.updateCollectionsSection = function(forceSelectEmail) {
     const list = document.createElement('ul');
     list.className = 'collections-list';
     const li = document.createElement('li');
-    li.textContent = selectedEmail;
+    // li.textContent = selectedEmail;
     if (imageIds.length > 0) {
       const imgList = document.createElement('div');
-      imgList.style.display = 'flex';
-      imgList.style.flexWrap = 'wrap';
-      imgList.style.gap = '8px';
+      imgList.className = 'image-grid';
       imageIds.forEach(function(id, idx) {
         const imgWrapper = document.createElement('div');
-        imgWrapper.style.position = 'relative';
-        imgWrapper.style.display = 'inline-block';
+        imgWrapper.className = 'image-wrapper';
 
         const img = document.createElement('img');
-        img.src = `https://picsum.photos/id/${id}/80/60`;
+        img.src = `https://picsum.photos/id/${id}/200/100`;
         img.alt = 'Collection image';
-        img.style.width = '80px';
-        img.style.height = '60px';
-        img.style.objectFit = 'cover';
 
         // Add remove (x) button
         const removeBtn = document.createElement('button');
         removeBtn.textContent = '×';
         removeBtn.title = 'Remove image';
-        removeBtn.style.position = 'absolute';
-        removeBtn.style.top = '0';
-        removeBtn.style.right = '0';
-        removeBtn.style.background = 'rgba(0,0,0,0.6)';
-        removeBtn.style.color = 'white';
-        removeBtn.style.border = 'none';
-        removeBtn.style.borderRadius = '50%';
-        removeBtn.style.width = '20px';
-        removeBtn.style.height = '20px';
-        removeBtn.style.cursor = 'pointer';
-        removeBtn.style.fontSize = '16px';
-        removeBtn.style.lineHeight = '18px';
-        removeBtn.style.padding = '0';
+        removeBtn.className = 'remove-btn';
 
         removeBtn.addEventListener('click', function(e) {
           e.stopPropagation();
