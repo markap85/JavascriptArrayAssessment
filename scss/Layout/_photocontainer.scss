@@ -4,7 +4,6 @@
     border-radius: 12px;
     flex: 1;
     margin: 0;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: all 0.3s ease;
 
@@ -17,7 +16,6 @@
     object-fit: cover;
     border: none;
     border-radius: 12px 12px 0 0;
-    box-shadow: none;
     transition: all 0.3s ease;
 
     &:hover {
@@ -71,4 +69,11 @@
             }
         }
     }
+}
+
+#add-warning {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: transparent; /* Initially hidden */
+  transition: color 0.3s ease;
 }

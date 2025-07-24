@@ -61,14 +61,17 @@ document.addEventListener('DOMContentLoaded', function() {
       const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (email && emailPattern.test(email)) {
         let notifyMsg = document.createElement('div');
-        notifyMsg.style.marginBottom = '0.5rem';
+        notifyMsg.style.marginTop = '0.5rem';
         if (!window.emailCollections[email]) {
           window.emailCollections[email] = [];
           window.lastCreatedEmail = email;
           notifyMsg.className = 'email-success';
-          notifyMsg.style.color = 'green';
-          notifyMsg.textContent = `Created new array for: ${email}`;
-          emailContainer.insertBefore(notifyMsg, emailForm);
+          notifyMsg.style.background = '#48bb78'; // soft green
+          notifyMsg.style.color = 'white';
+          notifyMsg.style.borderRadius = '5px';
+          notifyMsg.style.padding = '0.5rem 1rem';
+          notifyMsg.textContent = `Created new collection for: ${email}`;
+          emailContainer.appendChild(notifyMsg); // Insert after the subscribe box
           // Update the Collections section and force select the new collection
           if (typeof window.updateCollectionsSection === 'function') {
             window.updateCollectionsSection(email);
@@ -76,22 +79,28 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
           window.lastCreatedEmail = email;
           notifyMsg.className = 'email-info';
-          notifyMsg.style.color = 'orange';
-          notifyMsg.textContent = `Array for ${email} already exists.`;
-          emailContainer.insertBefore(notifyMsg, emailForm);
+          notifyMsg.style.background = '#f6ad55'; // soft orange
+          notifyMsg.style.color = '#333';
+          notifyMsg.style.borderRadius = '5px';
+          notifyMsg.style.padding = '0.5rem 1rem';
+          notifyMsg.textContent = `Collection for ${email} already exists.`;
+          emailContainer.appendChild(notifyMsg); // Insert after the subscribe box
           // Just update the Collections section (no force select)
           if (typeof window.updateCollectionsSection === 'function') {
             window.updateCollectionsSection();
           }
         }
       } else {
-        // Inject error message above the subscribe box
+        // Inject error message after the subscribe box
         let errorMsg = document.createElement('div');
         errorMsg.className = 'email-error';
-        errorMsg.style.color = 'red';
-        errorMsg.style.marginBottom = '0.5rem';
+        errorMsg.style.background = '#fee2e2'; // soft red
+        errorMsg.style.color = '#dc2626';
+        errorMsg.style.borderRadius = '5px';
+        errorMsg.style.padding = '0.5rem 1rem';
+        errorMsg.style.marginTop = '0.5rem';
         errorMsg.textContent = 'Please enter a valid email.';
-        emailContainer.insertBefore(errorMsg, emailForm);
+        emailContainer.appendChild(errorMsg); // Insert after the subscribe box
       }
     });
   }

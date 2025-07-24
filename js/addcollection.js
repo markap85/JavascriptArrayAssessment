@@ -13,7 +13,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const dropdown = document.querySelector('.collections-dropdown');
         const selectedEmail = dropdown ? dropdown.value : window.lastCreatedEmail;
         if (!selectedEmail) {
-          console.log('No email selected.');
+          // Show a visible error message in the element with id add-warning
+          const warningElem = document.getElementById('add-warning');
+          if (warningElem) {
+            warningElem.textContent = 'Please select or create a collection first.';
+            warningElem.style.color = 'red';
+          }
           return;
         }
         // Use the data-picsum-id attribute set by randomphoto.js
