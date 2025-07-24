@@ -1,7 +1,9 @@
 
 
-// Object to store arrays by email
-const emailCollections = {};
+
+// Object to store arrays by email (global)
+window.emailCollections = {};
+window.lastCreatedEmail = null;
 
 document.addEventListener('DOMContentLoaded', function() {
   const subscribeBtn = document.getElementById('button-subscribe');
@@ -20,12 +22,14 @@ document.addEventListener('DOMContentLoaded', function() {
       if (email) {
         let notifyMsg = document.createElement('div');
         notifyMsg.style.marginBottom = '0.5rem';
-        if (!emailCollections[email]) {
-          emailCollections[email] = [];
+        if (!window.emailCollections[email]) {
+          window.emailCollections[email] = [];
+          window.lastCreatedEmail = email;
           notifyMsg.className = 'email-success';
           notifyMsg.style.color = 'green';
           notifyMsg.textContent = `Created new array for: ${email}`;
         } else {
+          window.lastCreatedEmail = email;
           notifyMsg.className = 'email-info';
           notifyMsg.style.color = 'orange';
           notifyMsg.textContent = `Array for ${email} already exists.`;
@@ -33,22 +37,46 @@ document.addEventListener('DOMContentLoaded', function() {
         emailContainer.insertBefore(notifyMsg, emailInput);
 
         // Update the Collections section in the DOM
-        const collectionsSection = document.querySelector('.Collections');
-        if (collectionsSection) {
-          // Remove any previous list
-          let oldList = collectionsSection.querySelector('.collections-list');
-          if (oldList) oldList.remove();
-
-          // Create a new list
-          const list = document.createElement('ul');
-          list.className = 'collections-list';
-          Object.keys(emailCollections).forEach(function(key) {
-            const li = document.createElement('li');
-            li.textContent = key + ': [' + emailCollections[key].join(', ') + ']';
-            list.appendChild(li);
-          });
-          collectionsSection.appendChild(list);
+        if (typeof window.updateCollectionsSection === 'function') {
+          window.updateCollectionsSection();
         }
+// Global function to update the Collections section
+window.updateCollectionsSection = function() {
+  const collectionsSection = document.querySelector('.Collections');
+  if (collectionsSection) {
+    // Remove any previous list
+    let oldList = collectionsSection.querySelector('.collections-list');
+    if (oldList) oldList.remove();
+
+    // Create a new list
+    const list = document.createElement('ul');
+    list.className = 'collections-list';
+    Object.keys(window.emailCollections).forEach(function(key) {
+      const li = document.createElement('li');
+      li.textContent = key;
+      // If there are images in the array, display them below the email
+      const images = window.emailCollections[key];
+      if (images && images.length > 0) {
+        const imgList = document.createElement('div');
+        imgList.style.display = 'flex';
+        imgList.style.flexWrap = 'wrap';
+        imgList.style.gap = '8px';
+        images.forEach(function(url) {
+          const img = document.createElement('img');
+          img.src = url;
+          img.alt = 'Collection image';
+          img.style.width = '80px';
+          img.style.height = '60px';
+          img.style.objectFit = 'cover';
+          imgList.appendChild(img);
+        });
+        li.appendChild(imgList);
+      }
+      list.appendChild(li);
+    });
+    collectionsSection.appendChild(list);
+  }
+};
       } else {
         // Inject error message above the subscribe box
         let errorMsg = document.createElement('div');
