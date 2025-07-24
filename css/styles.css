@@ -94,7 +94,7 @@ input::placeholder, textarea::placeholder, select::placeholder, button::placehol
 .left-column {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 0.5rem;
   grid-column: 1;
 }
 
@@ -179,7 +179,6 @@ input::placeholder, textarea::placeholder, select::placeholder, button::placehol
 }
 
 .Email {
-  padding: 2rem 0;
   border-radius: 12px;
 }
 .Email h2 {
@@ -331,7 +330,6 @@ input::placeholder, textarea::placeholder, select::placeholder, button::placehol
 
 #add-warning {
   border-radius: 5px;
-  padding: 0.5rem 1rem;
   margin: 0.5rem 0;
   transition: color 0.3s ease;
 }
