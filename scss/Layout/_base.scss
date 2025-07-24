@@ -1,68 +1,18 @@
-// Base Container Class
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-  box-sizing: border-box;
-  text-align: center;
-  align-items: center;
-  border: 2px solid black;
-
-  // Responsive breakpoints
-  @media (min-width: 576px) {
-    padding: 0 1.5rem;
-  }
-
-  @media (min-width: 768px) {
-    padding: 0 2rem;
-  }
-
-  @media (min-width: 992px) {
-    padding: 0 2.5rem;
-  }
-
-  @media (min-width: 1200px) {
-    padding: 0 3rem;
-  }
-
-  // Modifier classes for different container sizes
-  &--small {
-    max-width: 768px;
-  }
-
-  &--medium {
-    max-width: 992px;
-  }
-
-  &--large {
-    max-width: 1400px;
-  }
-
-  &--fluid {
-    max-width: none;
+// Container Class
+.primary-container {
     width: 100%;
-  }
-
-  &--no-padding {
-    padding: 0;
-  }
-
-  // Utility modifiers
-  &--center {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    box-sizing: border-box;
     text-align: center;
-  }
-
-  &--flex {
-    display: flex;
-    flex-wrap: wrap;
     align-items: center;
-  }
-
-  &--grid {
-    display: grid;
-    gap: 1rem;
-  }
+    border: 5px solid #201c1c;
+    border-radius: 8px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 // Additional base styles for common elements
@@ -75,6 +25,7 @@ body {
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   line-height: 1.6;
+  background-color: ivory;
 }
 
 // Clear fix utility
@@ -123,19 +74,6 @@ body {
   }
 }
 
-.random-photo {
-  padding: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  flex: 1;
-  
-  img {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    border-radius: 4px;
-  }
-}
 
 .Email {
   padding: 1rem;
@@ -174,30 +112,3 @@ body {
   }
 }
 
-.button-container {
-  display: flex;
-  gap: 0.5rem;
-  margin-top: 1rem;
-  
-  button {
-    padding: 0.5rem 1rem;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    
-    &:hover {
-      background-color: #1e7e34;
-    }
-    
-    &#button-delete-collection,
-    &#button-delete-all {
-      background-color: #dc3545;
-      
-      &:hover {
-        background-color: #c82333;
-      }
-    }
-  }
-}

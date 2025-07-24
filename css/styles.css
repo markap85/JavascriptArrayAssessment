@@ -1,4 +1,4 @@
-.container {
+.primary-container {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -6,55 +6,12 @@
   box-sizing: border-box;
   text-align: center;
   align-items: center;
-  border: 2px solid black;
-}
-@media (min-width: 576px) {
-  .container {
-    padding: 0 1.5rem;
-  }
-}
-@media (min-width: 768px) {
-  .container {
-    padding: 0 2rem;
-  }
-}
-@media (min-width: 992px) {
-  .container {
-    padding: 0 2.5rem;
-  }
-}
-@media (min-width: 1200px) {
-  .container {
-    padding: 0 3rem;
-  }
-}
-.container--small {
-  max-width: 768px;
-}
-.container--medium {
-  max-width: 992px;
-}
-.container--large {
-  max-width: 1400px;
-}
-.container--fluid {
-  max-width: none;
-  width: 100%;
-}
-.container--no-padding {
-  padding: 0;
-}
-.container--center {
-  text-align: center;
-}
-.container--flex {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-}
-.container--grid {
-  display: grid;
-  gap: 1rem;
+  border: 5px solid #201c1c;
+  border-radius: 8px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 * {
@@ -66,6 +23,7 @@ body {
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   line-height: 1.6;
+  background-color: ivory;
 }
 
 .clearfix::after {
@@ -113,19 +71,6 @@ body {
   margin-bottom: 1rem;
 }
 
-.random-photo {
-  padding: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  flex: 1;
-}
-.random-photo img {
-  width: 100%;
-  max-width: 400px;
-  height: auto;
-  border-radius: 4px;
-}
-
 .Email {
   padding: 1rem;
   border: 1px solid #ddd;
@@ -159,29 +104,6 @@ body {
   background-color: #0056b3;
 }
 
-.button-container {
-  display: flex;
-  gap: 0.5rem;
-  margin-top: 1rem;
-}
-.button-container button {
-  padding: 0.5rem 1rem;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-.button-container button:hover {
-  background-color: #1e7e34;
-}
-.button-container button#button-delete-collection, .button-container button#button-delete-all {
-  background-color: #dc3545;
-}
-.button-container button#button-delete-collection:hover, .button-container button#button-delete-all:hover {
-  background-color: #c82333;
-}
-
 header {
   background-color: #0c68c4;
   color: #ffffff;
@@ -205,11 +127,33 @@ header nav a:hover {
   text-decoration: underline;
 }
 
+.random-photo {
+  padding: 1rem;
+  border: 5px solid #201c1c;
+  border-radius: 8px;
+  flex: 1;
+  margin: 0 2rem;
+}
 .random-photo img {
   width: 100%;
+  max-width: 400px;
   height: auto;
+  border: 5px solid #201c1c;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+#imagename {
+  text-align: center;
+  font-size: 1.2rem;
+  background-color: #201c1c;
+  color: white;
+  font-weight: bold;
+  margin: 1rem auto;
+  border: 10px solid #201c1c;
+  border-radius: 8px;
+  max-width: 400px;
 }
 
 .button-container {
@@ -217,18 +161,24 @@ header nav a:hover {
   flex-direction: row;
   gap: 1rem;
   justify-content: center;
-  margin-top: 1rem;
-  padding: 2rem;
+  margin: 0 auto;
+  max-width: 400px;
 }
 .button-container button {
-  margin: 0 0.5rem;
+  flex: 1 1 0;
+  padding: 0.5rem 1rem;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
-.button-container .button-random {
-  padding: 20px 40px;
-  flex: 1;
-  align-self: flex-start;
+.button-container button:hover {
+  background-color: #1e7e34;
 }
-.button-container .button-random {
-  flex: 1;
-  align-self: flex-end;
+.button-container button#button-delete-collection, .button-container button#button-delete-all {
+  background-color: #dc3545;
+}
+.button-container button#button-delete-collection:hover, .button-container button#button-delete-all:hover {
+  background-color: #c82333;
 }/*# sourceMappingURL=styles.css.map */

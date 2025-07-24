@@ -9,7 +9,7 @@ function setRandomPhoto() {
     .then(data => {
       if (data && data.length > 0) {
         const photo = data[Math.floor(Math.random() * data.length)];
-        const img = document.querySelector('.container img');
+        const img = document.querySelector('.primary-container img');
         const imageNameElement = document.getElementById('imagename');
         
         if (img) {
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Set a random photo on page load if needed
-  const img = document.querySelector('.container img');
+  const img = document.querySelector('.primary-container img');
   if (img && !img.hasAttribute('data-picsum-id')) {
     setRandomPhoto();
   }
