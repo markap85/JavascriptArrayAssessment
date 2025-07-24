@@ -200,7 +200,7 @@ window.updateCollectionsSection = function(forceSelectEmail) {
           e.stopPropagation();
           window.emailCollections[selectedEmail].splice(idx, 1);
         if (typeof window.updateCollectionsSection === 'function') {
-          window.updateCollectionsSection(window.lastCreatedEmail);
+          window.updateCollectionsSection(selectedEmail);
         }
         });
 
