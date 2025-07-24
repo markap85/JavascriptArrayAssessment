@@ -35,26 +35,34 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
+// Typography - Mobile First
 h1 {
   font-family: 'Ephesis', cursive;
-  font-size: 3rem;
+  font-size: 2rem; // Mobile size
   font-weight: 400;
   letter-spacing: 0.01em;
-  margin-bottom: 2rem;
-  color: $font-primary;
+  margin-bottom: 1.5rem; // Mobile margin
+  color: $text-primary;
+  text-align: center;
   
-  @media (max-width: 768px) {
-    font-size: 1.875rem;
+  // Tablet and up
+  @media (min-width: 769px) {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    text-align: left;
   }
 }
 
 h2 {
-  font-size: 1.5rem;
+  font-size: 1.25rem; // Mobile size
   font-weight: 600;
   margin-bottom: 0.5rem;
+  text-align: center;
   
-  @media (max-width: 768px) {
-    font-size: 1.25rem;
+  // Tablet and up
+  @media (min-width: 769px) {
+    font-size: 1.5rem;
+    text-align: left;
   }
 }
 

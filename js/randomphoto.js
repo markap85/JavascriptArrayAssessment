@@ -14,7 +14,14 @@ async function setRandomPhoto() {
 
     if (Array.isArray(data) && data.length > 0) {
       const photo = data[Math.floor(Math.random() * data.length)];
-      img.onload = () => { randomBtn.textContent = 'Random Photo'; };
+      
+      img.onload = () => { 
+        randomBtn.textContent = 'Random Photo';
+        // Trigger button state check after image is fully loaded
+        if (typeof window.checkAddButtonState === 'function') {
+          window.checkAddButtonState();
+        }
+      };
       img.onerror = () => { randomBtn.textContent = 'Random Photo'; };
       img.src = `https://picsum.photos/id/${photo.id}/800/600`;
       img.setAttribute('data-picsum-id', photo.id);

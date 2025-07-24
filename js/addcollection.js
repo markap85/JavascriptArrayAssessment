@@ -42,6 +42,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
+  // Make checkButtonState globally available for randomphoto.js
+  window.checkAddButtonState = checkButtonState;
+
   function showWarning(message) {
     const warningElem = document.getElementById('add-warning');
     if (!warningElem) return;
@@ -132,8 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
   if (randomBtn) {
     randomBtn.addEventListener('click', function() {
       resetAddButton();
-      // Check state after a brief delay to allow image to load
-      setTimeout(checkButtonState, 100);
+      // Note: The actual state check now happens in randomphoto.js after image loads
     });
   }
 

@@ -1,5 +1,12 @@
+// Email Form - Mobile First
 .Email {
-  border-radius: 12px;
+  background: $white;
+  border-radius: 8px; // Mobile: smaller radius
+  
+  // Tablet and up
+  @media (min-width: 769px) {
+    border-radius: 12px;
+  }
   
   h2 {
     margin-top: 0;
@@ -8,9 +15,16 @@
   
   .email-form {
     display: flex;
+    flex-direction: column; // Mobile: stack form elements
     gap: 0.75rem;
-    align-items: center;
+    align-items: stretch; // Mobile: full width
     margin: 1rem 0 0 0;
+
+    // Tablet and up: side-by-side
+    @media (min-width: 480px) {
+      flex-direction: row;
+      align-items: center;
+    }
   }
   
   input {
@@ -20,6 +34,7 @@
     border-radius: 8px;
     box-sizing: border-box;
     margin: 0;
+    font-size: 1rem; // Mobile: ensure readable size
     
     &:focus {
       outline: none;
@@ -36,6 +51,7 @@
     cursor: pointer;
     flex-shrink: 0;
     transition: all 0.2s ease;
+    font-size: 1rem; // Mobile: ensure readable size
     
     &:hover {
       background-color: $black-hover;
