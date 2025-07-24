@@ -238,14 +238,13 @@ input::placeholder, textarea::placeholder, select::placeholder, button::placehol
 .Collections .collections-dropdown {
   width: 100%;
   padding: 0.75rem;
-  border: 1px solid #ddd;
+  border: 1px solid #6b7280;
   border-radius: 0 12px 0 0;
   margin-bottom: 1.5rem;
-  background: white;
 }
 .Collections .collections-dropdown:focus {
   outline: none;
-  border-color: #000;
+  border-color: #000000;
 }
 .Collections .button-container {
   padding: 0;
@@ -255,19 +254,11 @@ input::placeholder, textarea::placeholder, select::placeholder, button::placehol
   gap: 0.5rem;
 }
 .Collections .button-container button {
-  background: #f5f5f5;
   color: #333;
   padding: 0.6rem 1rem;
 }
 .Collections .button-container button:hover {
   background: #e5e5e5;
-}
-.Collections .button-container button#button-delete-collection, .Collections .button-container button#button-delete-all {
-  background-color: #fef2f2;
-  color: #dc2626;
-}
-.Collections .button-container button#button-delete-collection:hover, .Collections .button-container button#button-delete-all:hover {
-  background-color: #fee2e2;
 }
 
 .already-in-library {
@@ -286,7 +277,7 @@ input::placeholder, textarea::placeholder, select::placeholder, button::placehol
 .collections-list li {
   margin-bottom: 1rem;
   font-weight: 500;
-  color: #374151;
+  color: #111827;
 }
 .collections-list .image-grid {
   display: flex;
@@ -331,9 +322,24 @@ input::placeholder, textarea::placeholder, select::placeholder, button::placehol
   transition: all 0.2s ease;
 }
 .collections-list .image-wrapper .remove-btn:hover {
-  background: rgba(220, 38, 38, 0.9);
+  background: blue;
   transform: scale(1.1);
 }
 .collections-list .image-wrapper .remove-btn:active {
   transform: scale(0.95);
+}
+
+#add-warning {
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0;
+  transition: color 0.3s ease;
+}
+#add-warning.warning-visible {
+  color: #dc2626;
+  background: #fee2e2;
+}
+#add-warning.warning-hidden {
+  color: transparent;
+  background: transparent;
 }/*# sourceMappingURL=styles.css.map */

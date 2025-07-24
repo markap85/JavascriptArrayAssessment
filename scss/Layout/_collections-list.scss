@@ -64,3 +64,21 @@
     }
   }
 }
+
+// Warning message styles
+#add-warning {
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0;
+  transition: color 0.3s ease;
+
+  &.warning-visible {
+    color: #dc2626;
+    background: #fee2e2;
+  }
+
+  &.warning-hidden {
+    color: transparent;
+    background: transparent;
+  }
+}
