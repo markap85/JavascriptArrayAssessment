@@ -10,9 +10,16 @@ function setRandomPhoto() {
       if (data && data.length > 0) {
         const photo = data[Math.floor(Math.random() * data.length)];
         const img = document.querySelector('.container img');
+        const imageNameElement = document.getElementById('imagename');
+        
         if (img) {
           img.src = `https://picsum.photos/id/${photo.id}/800/600`;
           img.setAttribute('data-picsum-id', photo.id);
+        }
+        
+        // Update the image name/description with metadata
+        if (imageNameElement) {
+          imageNameElement.textContent = `Photo by ${photo.author}`;
         }
       }
     });

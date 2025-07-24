@@ -15,32 +15,36 @@
 
 
     <div class="container">
-        <h2>Random Photo</h2>
-        <img src="https://picsum.photos/800/600" alt="Random Photo">
-        <p>This is a random photo from Picsum.</p>
-        <div class="button-container">
-            <button id="button-random">New Photo</button>
-            <button id="button-add">Add Image to Collection</button>
-        </div>
-    </div>
-    </div>
+        <div class="main-layout">
+            <div class="left-column">
+                <div class="random-photo">
+                    <h2>Random Photo</h2>
+                    <img src="https://picsum.photos/800/600" alt="Random Photo">
+                    <p id="imagename">This is a random photo from Picsum.</p>
+                    <div class="button-container">
+                        <button id="button-random">New Photo</button>
+                        <button id="button-add">Add Image to Collection</button>
+                    </div>
+                </div>
 
-        <div class="container">
-        <div class = "Email">
-            <h2>Email</h2>
-            <p>Create a New Collection</p>
-            <input type="email" placeholder="Enter your email">
-            <button id="button-subscribe">Subscribe</button>
-        </div>
-    </div>
-    
-        <div class="container">
-        <div class = "Collections">
-            <h2>Collections</h2>
-            <p>A collection associated with an email</p>
-            <div class="button-container">
-                <button id="button-delete-collection">Delete Collection</button>
-                <button id="button-delete-all">Delete All Images</button>
+                <div class="Email">
+                    <h2>Email</h2>
+                    <p>Create a New Collection</p>
+                    <input type="email" placeholder="Enter your email">
+                    <button id="button-subscribe">Subscribe</button>
+                </div>
+            </div>
+            
+            <div class="Collections">
+                <h2>Collections</h2>
+                <p>A collection associated with an email</p>
+                <select class="collections-dropdown" style="margin-bottom: 1rem;">
+                    <option value="">No collections yet</option>
+                </select>
+                <div class="button-container">
+                    <button id="button-delete-collection">Delete Collection</button>
+                    <button id="button-delete-all">Delete Collection Images</button>
+                </div>
             </div>
         </div>
     </div>

@@ -55,7 +55,9 @@ document.addEventListener('DOMContentLoaded', function() {
         oldMsg.remove();
       }
 
-      if (email) {
+      // Email format validation
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (email && emailPattern.test(email)) {
         let notifyMsg = document.createElement('div');
         notifyMsg.style.marginBottom = '0.5rem';
         if (!window.emailCollections[email]) {
@@ -76,48 +78,85 @@ document.addEventListener('DOMContentLoaded', function() {
         if (typeof window.updateCollectionsSection === 'function') {
           window.updateCollectionsSection();
         }
+      } else {
+        // Inject error message above the subscribe box
+        let errorMsg = document.createElement('div');
+        errorMsg.className = 'email-error';
+        errorMsg.style.color = 'red';
+        errorMsg.style.marginBottom = '0.5rem';
+        errorMsg.textContent = 'Please enter a valid email.';
+        emailContainer.insertBefore(errorMsg, emailInput);
+      }
+    });
+  }
+});
+
 // Global function to update the Collections section with dropdown
 window.updateCollectionsSection = function() {
   const collectionsSection = document.querySelector('.Collections');
   if (!collectionsSection) return;
 
-  // Store current selection
-  let oldDropdown = collectionsSection.querySelector('.collections-dropdown');
-  let prevSelected = oldDropdown ? oldDropdown.value : null;
+  // Find existing dropdown
+  let dropdown = collectionsSection.querySelector('.collections-dropdown');
+  if (!dropdown) {
+    // Create dropdown if it doesn't exist
+    dropdown = document.createElement('select');
+    dropdown.className = 'collections-dropdown';
+    dropdown.style.marginBottom = '1rem';
+    collectionsSection.insertBefore(dropdown, collectionsSection.querySelector('.button-container'));
+  }
 
-  // Remove any previous dropdown or list
-  if (oldDropdown) oldDropdown.remove();
+  // Store current selection
+  let prevSelected = dropdown.value;
+
+  // Remove existing event listeners by cloning the dropdown
+  const newDropdown = dropdown.cloneNode(false);
+  newDropdown.className = dropdown.className;
+  newDropdown.style.marginBottom = dropdown.style.marginBottom;
+  dropdown.parentNode.replaceChild(newDropdown, dropdown);
+  dropdown = newDropdown;
+
+  // Remove any previous list
   let oldList = collectionsSection.querySelector('.collections-list');
   if (oldList) oldList.remove();
 
   const emails = Object.keys(window.emailCollections);
-  if (emails.length === 0) return;
-
-  // Create dropdown
-  const dropdown = document.createElement('select');
-  dropdown.className = 'collections-dropdown';
-  dropdown.style.marginBottom = '1rem';
-  emails.forEach(function(email, idx) {
+  
+  // Always clear and repopulate dropdown
+  dropdown.innerHTML = '';
+  
+  if (emails.length === 0) {
+    // No collections - show placeholder
     const option = document.createElement('option');
-    option.value = email;
-    option.textContent = email;
+    option.value = '';
+    option.textContent = 'No collections yet';
     dropdown.appendChild(option);
-  });
-  collectionsSection.appendChild(dropdown);
-
-  // Set dropdown to previous selection if possible, else lastCreatedEmail, else first
-  if (prevSelected && emails.includes(prevSelected)) {
-    dropdown.value = prevSelected;
-  } else if (window.lastCreatedEmail && emails.includes(window.lastCreatedEmail)) {
-    dropdown.value = window.lastCreatedEmail;
   } else {
-    dropdown.value = emails[0];
+    // Add all email options
+    emails.forEach(function(email) {
+      const option = document.createElement('option');
+      option.value = email;
+      option.textContent = email;
+      dropdown.appendChild(option);
+    });
+
+    // Set dropdown to previous selection if possible, else lastCreatedEmail, else first
+    if (prevSelected && prevSelected !== '' && emails.includes(prevSelected)) {
+      dropdown.value = prevSelected;
+    } else if (window.lastCreatedEmail && emails.includes(window.lastCreatedEmail)) {
+      dropdown.value = window.lastCreatedEmail;
+    } else {
+      dropdown.value = emails[0];
+    }
   }
 
   // Function to render images for selected email
   function renderImagesForEmail(selectedEmail) {
     let oldList = collectionsSection.querySelector('.collections-list');
     if (oldList) oldList.remove();
+    
+    if (!selectedEmail) return; // No email selected
+    
     const imageIds = window.emailCollections[selectedEmail] || [];
     const list = document.createElement('ul');
     list.className = 'collections-list';
@@ -180,20 +219,8 @@ window.updateCollectionsSection = function() {
   let selectedEmail = dropdown.value;
   renderImagesForEmail(selectedEmail);
 
-  // Update images on dropdown change
+  // Add change event listener
   dropdown.addEventListener('change', function() {
     renderImagesForEmail(dropdown.value);
   });
 };
-      } else {
-        // Inject error message above the subscribe box
-        let errorMsg = document.createElement('div');
-        errorMsg.className = 'email-error';
-        errorMsg.style.color = 'red';
-        errorMsg.style.marginBottom = '0.5rem';
-        errorMsg.textContent = 'Please enter a valid email.';
-        emailContainer.insertBefore(errorMsg, emailInput);
-      }
-    });
-  }
-});
