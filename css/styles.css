@@ -162,10 +162,10 @@ input::placeholder, textarea::placeholder, select::placeholder, button::placehol
   transform: translateY(0);
 }
 .button-container button#button-delete-collection, .button-container button#button-delete-all {
-  background-color: #ef4444;
+  background-color: rgba(239, 68, 68, 0.5568627451);
 }
 .button-container button#button-delete-collection:hover, .button-container button#button-delete-all:hover {
-  background-color: rgb(188.842364532, 16.157635468, 16.157635468);
+  background-color: rgba(188.842364532, 16.157635468, 16.157635468, 0.5568627451);
 }
 
 #add-warning {
@@ -322,7 +322,7 @@ input::placeholder, textarea::placeholder, select::placeholder, button::placehol
   transition: all 0.2s ease;
 }
 .collections-list .image-wrapper .remove-btn:hover {
-  background: blue;
+  background: #ef4444;
   transform: scale(1.1);
 }
 .collections-list .image-wrapper .remove-btn:active {
@@ -336,8 +336,8 @@ input::placeholder, textarea::placeholder, select::placeholder, button::placehol
   transition: color 0.3s ease;
 }
 #add-warning.warning-visible {
-  color: #dc2626;
-  background: #fee2e2;
+  color: #ffffff;
+  background: rgba(239, 68, 68, 0.5568627451);
 }
 #add-warning.warning-hidden {
   color: transparent;
