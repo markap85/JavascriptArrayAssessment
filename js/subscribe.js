@@ -1,3 +1,39 @@
+// Event listeners for delete buttons in Collections section
+document.addEventListener('DOMContentLoaded', function() {
+  const deleteCollectionBtn = document.getElementById('button-delete-collection');
+  const deleteAllBtn = document.getElementById('button-delete-all');
+
+  if (deleteCollectionBtn) {
+    deleteCollectionBtn.addEventListener('click', function() {
+      const dropdown = document.querySelector('.collections-dropdown');
+      const selectedEmail = dropdown ? dropdown.value : null;
+      if (selectedEmail && window.emailCollections[selectedEmail]) {
+        delete window.emailCollections[selectedEmail];
+        // Update lastCreatedEmail if needed
+        if (window.lastCreatedEmail === selectedEmail) {
+          const keys = Object.keys(window.emailCollections);
+          window.lastCreatedEmail = keys.length > 0 ? keys[keys.length - 1] : null;
+        }
+        if (typeof window.updateCollectionsSection === 'function') {
+          window.updateCollectionsSection();
+        }
+      }
+    });
+  }
+
+  if (deleteAllBtn) {
+    deleteAllBtn.addEventListener('click', function() {
+      const dropdown = document.querySelector('.collections-dropdown');
+      const selectedEmail = dropdown ? dropdown.value : null;
+      if (selectedEmail && window.emailCollections[selectedEmail]) {
+        window.emailCollections[selectedEmail] = [];
+        if (typeof window.updateCollectionsSection === 'function') {
+          window.updateCollectionsSection();
+        }
+      }
+    });
+  }
+});
 
 
 
@@ -45,8 +81,11 @@ window.updateCollectionsSection = function() {
   const collectionsSection = document.querySelector('.Collections');
   if (!collectionsSection) return;
 
-  // Remove any previous dropdown or list
+  // Store current selection
   let oldDropdown = collectionsSection.querySelector('.collections-dropdown');
+  let prevSelected = oldDropdown ? oldDropdown.value : null;
+
+  // Remove any previous dropdown or list
   if (oldDropdown) oldDropdown.remove();
   let oldList = collectionsSection.querySelector('.collections-list');
   if (oldList) oldList.remove();
@@ -62,44 +101,79 @@ window.updateCollectionsSection = function() {
     const option = document.createElement('option');
     option.value = email;
     option.textContent = email;
-    // Select lastCreatedEmail by default
-    if (window.lastCreatedEmail && window.lastCreatedEmail === email) {
-      option.selected = true;
-    } else if (!window.lastCreatedEmail && idx === 0) {
-      option.selected = true;
-    }
     dropdown.appendChild(option);
   });
   collectionsSection.appendChild(dropdown);
+
+  // Set dropdown to previous selection if possible, else lastCreatedEmail, else first
+  if (prevSelected && emails.includes(prevSelected)) {
+    dropdown.value = prevSelected;
+  } else if (window.lastCreatedEmail && emails.includes(window.lastCreatedEmail)) {
+    dropdown.value = window.lastCreatedEmail;
+  } else {
+    dropdown.value = emails[0];
+  }
 
   // Function to render images for selected email
   function renderImagesForEmail(selectedEmail) {
     let oldList = collectionsSection.querySelector('.collections-list');
     if (oldList) oldList.remove();
-      const imageIds = window.emailCollections[selectedEmail] || [];
-      const list = document.createElement('ul');
-      list.className = 'collections-list';
-      const li = document.createElement('li');
-      li.textContent = selectedEmail;
-      if (imageIds.length > 0) {
-        const imgList = document.createElement('div');
-        imgList.style.display = 'flex';
-        imgList.style.flexWrap = 'wrap';
-        imgList.style.gap = '8px';
-        imageIds.forEach(function(id) {
-          // Use static Picsum URL for the image id
-          const img = document.createElement('img');
-          img.src = `https://picsum.photos/id/${id}/80/60`;
-          img.alt = 'Collection image';
-          img.style.width = '80px';
-          img.style.height = '60px';
-          img.style.objectFit = 'cover';
-          imgList.appendChild(img);
+    const imageIds = window.emailCollections[selectedEmail] || [];
+    const list = document.createElement('ul');
+    list.className = 'collections-list';
+    const li = document.createElement('li');
+    li.textContent = selectedEmail;
+    if (imageIds.length > 0) {
+      const imgList = document.createElement('div');
+      imgList.style.display = 'flex';
+      imgList.style.flexWrap = 'wrap';
+      imgList.style.gap = '8px';
+      imageIds.forEach(function(id, idx) {
+        const imgWrapper = document.createElement('div');
+        imgWrapper.style.position = 'relative';
+        imgWrapper.style.display = 'inline-block';
+
+        const img = document.createElement('img');
+        img.src = `https://picsum.photos/id/${id}/80/60`;
+        img.alt = 'Collection image';
+        img.style.width = '80px';
+        img.style.height = '60px';
+        img.style.objectFit = 'cover';
+
+        // Add remove (x) button
+        const removeBtn = document.createElement('button');
+        removeBtn.textContent = '×';
+        removeBtn.title = 'Remove image';
+        removeBtn.style.position = 'absolute';
+        removeBtn.style.top = '0';
+        removeBtn.style.right = '0';
+        removeBtn.style.background = 'rgba(0,0,0,0.6)';
+        removeBtn.style.color = 'white';
+        removeBtn.style.border = 'none';
+        removeBtn.style.borderRadius = '50%';
+        removeBtn.style.width = '20px';
+        removeBtn.style.height = '20px';
+        removeBtn.style.cursor = 'pointer';
+        removeBtn.style.fontSize = '16px';
+        removeBtn.style.lineHeight = '18px';
+        removeBtn.style.padding = '0';
+
+        removeBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          window.emailCollections[selectedEmail].splice(idx, 1);
+          if (typeof window.updateCollectionsSection === 'function') {
+            window.updateCollectionsSection();
+          }
         });
-        li.appendChild(imgList);
-      }
-      list.appendChild(li);
-      collectionsSection.appendChild(list);
+
+        imgWrapper.appendChild(img);
+        imgWrapper.appendChild(removeBtn);
+        imgList.appendChild(imgWrapper);
+      });
+      li.appendChild(imgList);
+    }
+    list.appendChild(li);
+    collectionsSection.appendChild(list);
   }
 
   // Initial render for selected email
