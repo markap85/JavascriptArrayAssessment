@@ -1,0 +1,23 @@
+.button-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+    padding: 2rem;
+
+    button {
+        margin: 0 0.5rem;
+    }
+
+    .button-random {
+        padding: 20px 40px;
+        flex: 1;
+        align-self: flex-start;
+    }
+
+    .button-random {
+        flex: 1;
+        align-self: flex-end;
+    }
+}
