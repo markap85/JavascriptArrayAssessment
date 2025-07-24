@@ -1,16 +1,34 @@
 
-// Event listener for the 'New Photo' button
+
+// Helper to set a new random image by fetching metadata first
+function setRandomPhoto() {
+  // Fetch a large list of images and pick a random one
+  const page = Math.floor(Math.random() * 10) + 1;
+  fetch('https://picsum.photos/v2/list?page=' + page + '&limit=100')
+    .then(res => res.json())
+    .then(data => {
+      if (data && data.length > 0) {
+        const photo = data[Math.floor(Math.random() * data.length)];
+        const img = document.querySelector('.container img');
+        if (img) {
+          img.src = `https://picsum.photos/id/${photo.id}/800/600`;
+          img.setAttribute('data-picsum-id', photo.id);
+        }
+      }
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   const randomBtn = document.getElementById('button-random');
   if (randomBtn) {
     randomBtn.addEventListener('click', function() {
-      // Find the image element in the same container as the button
-      const container = randomBtn.closest('.container');
-      const img = container ? container.querySelector('img') : null;
-      if (img) {
-        // Add a random query param to force a new image
-        img.src = 'https://picsum.photos/800/600?random=' + Date.now();
-      }
+      setRandomPhoto();
     });
+  }
+
+  // Set a random photo on page load if needed
+  const img = document.querySelector('.container img');
+  if (img && !img.hasAttribute('data-picsum-id')) {
+    setRandomPhoto();
   }
 });

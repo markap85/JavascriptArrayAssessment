@@ -40,30 +40,56 @@ document.addEventListener('DOMContentLoaded', function() {
         if (typeof window.updateCollectionsSection === 'function') {
           window.updateCollectionsSection();
         }
-// Global function to update the Collections section
+// Global function to update the Collections section with dropdown
 window.updateCollectionsSection = function() {
   const collectionsSection = document.querySelector('.Collections');
-  if (collectionsSection) {
-    // Remove any previous list
+  if (!collectionsSection) return;
+
+  // Remove any previous dropdown or list
+  let oldDropdown = collectionsSection.querySelector('.collections-dropdown');
+  if (oldDropdown) oldDropdown.remove();
+  let oldList = collectionsSection.querySelector('.collections-list');
+  if (oldList) oldList.remove();
+
+  const emails = Object.keys(window.emailCollections);
+  if (emails.length === 0) return;
+
+  // Create dropdown
+  const dropdown = document.createElement('select');
+  dropdown.className = 'collections-dropdown';
+  dropdown.style.marginBottom = '1rem';
+  emails.forEach(function(email, idx) {
+    const option = document.createElement('option');
+    option.value = email;
+    option.textContent = email;
+    // Select lastCreatedEmail by default
+    if (window.lastCreatedEmail && window.lastCreatedEmail === email) {
+      option.selected = true;
+    } else if (!window.lastCreatedEmail && idx === 0) {
+      option.selected = true;
+    }
+    dropdown.appendChild(option);
+  });
+  collectionsSection.appendChild(dropdown);
+
+  // Function to render images for selected email
+  function renderImagesForEmail(selectedEmail) {
     let oldList = collectionsSection.querySelector('.collections-list');
     if (oldList) oldList.remove();
-
-    // Create a new list
-    const list = document.createElement('ul');
-    list.className = 'collections-list';
-    Object.keys(window.emailCollections).forEach(function(key) {
+      const imageIds = window.emailCollections[selectedEmail] || [];
+      const list = document.createElement('ul');
+      list.className = 'collections-list';
       const li = document.createElement('li');
-      li.textContent = key;
-      // If there are images in the array, display them below the email
-      const images = window.emailCollections[key];
-      if (images && images.length > 0) {
+      li.textContent = selectedEmail;
+      if (imageIds.length > 0) {
         const imgList = document.createElement('div');
         imgList.style.display = 'flex';
         imgList.style.flexWrap = 'wrap';
         imgList.style.gap = '8px';
-        images.forEach(function(url) {
+        imageIds.forEach(function(id) {
+          // Use static Picsum URL for the image id
           const img = document.createElement('img');
-          img.src = url;
+          img.src = `https://picsum.photos/id/${id}/80/60`;
           img.alt = 'Collection image';
           img.style.width = '80px';
           img.style.height = '60px';
@@ -73,9 +99,17 @@ window.updateCollectionsSection = function() {
         li.appendChild(imgList);
       }
       list.appendChild(li);
-    });
-    collectionsSection.appendChild(list);
+      collectionsSection.appendChild(list);
   }
+
+  // Initial render for selected email
+  let selectedEmail = dropdown.value;
+  renderImagesForEmail(selectedEmail);
+
+  // Update images on dropdown change
+  dropdown.addEventListener('change', function() {
+    renderImagesForEmail(dropdown.value);
+  });
 };
       } else {
         // Inject error message above the subscribe box
