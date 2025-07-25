@@ -1,49 +1,64 @@
-// Fetch Image Metadata First
+// Random Photo Generator
 async function setRandomPhoto() {
   const randomBtn = document.getElementById('button-random');
   const img = document.querySelector('.primary-container img');
   const imageNameElement = document.getElementById('imagename');
+  
   if (!randomBtn || !img) return;
 
   randomBtn.textContent = 'Loading...';
 
   try {
+    // Fetch random photo data
     const page = Math.floor(Math.random() * 10) + 1;
-    const res = await fetch(`https://picsum.photos/v2/list?page=${page}&limit=30`);
-    const data = await res.json();
+    const response = await fetch(`https://picsum.photos/v2/list?page=${page}&limit=30`);
+    const photos = await response.json();
 
-    if (Array.isArray(data) && data.length > 0) {
-      const photo = data[Math.floor(Math.random() * data.length)];
-      
-      img.onload = () => { 
-        randomBtn.textContent = 'Random Photo';
-        // Trigger button state check after image is fully loaded
-        if (typeof window.checkAddButtonState === 'function') {
-          window.checkAddButtonState();
-        }
-      };
-      img.onerror = () => { randomBtn.textContent = 'Random Photo'; };
-      img.src = `https://picsum.photos/id/${photo.id}/800/600`;
-      img.setAttribute('data-picsum-id', photo.id);
-      if (imageNameElement) imageNameElement.textContent = `Photo by ${photo.author}`;
-    } else {
-      randomBtn.textContent = 'Random Photo';
+    if (!Array.isArray(photos) || photos.length === 0) {
+      throw new Error('No photos available');
     }
-  } catch {
+
+    // Select random photo
+    const photo = photos[Math.floor(Math.random() * photos.length)];
+    
+    // Update image with loading handlers
+    img.onload = () => {
+      randomBtn.textContent = 'Random Photo';
+      // Update add button state after image loads
+      window.checkAddButtonState?.();
+    };
+    
+    img.onerror = () => {
+      randomBtn.textContent = 'Random Photo';
+      console.error('Failed to load image');
+    };
+
+    // Set new image
+    img.src = `https://picsum.photos/id/${photo.id}/800/600`;
+    img.setAttribute('data-picsum-id', photo.id);
+    
+    // Update photo credit
+    if (imageNameElement) {
+      imageNameElement.textContent = `Photo by ${photo.author}`;
+    }
+
+  } catch (error) {
+    console.error('Error fetching photo:', error);
     randomBtn.textContent = 'Random Photo';
   }
 }
 
-// Main script to randomise image
-
+// Initialize random photo functionality
 document.addEventListener('DOMContentLoaded', function() {
   const randomBtn = document.getElementById('button-random');
+  const img = document.querySelector('.primary-container img');
+
+  // Add click handler
   if (randomBtn) {
     randomBtn.addEventListener('click', setRandomPhoto);
   }
 
-  // Set a random photo on page load
-  const img = document.querySelector('.primary-container img');
+  // Load initial random photo if none exists
   if (img && !img.hasAttribute('data-picsum-id')) {
     setRandomPhoto();
   }
