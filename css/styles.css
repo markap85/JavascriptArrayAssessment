@@ -5,10 +5,6 @@
   margin-top: 0.5rem;
 }
 
-* {
-  box-sizing: border-box;
-}
-
 html {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
@@ -93,12 +89,15 @@ input::placeholder, textarea::placeholder, select::placeholder, button::placehol
   color: #6b7280;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 .primary-container {
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
   padding: 1rem;
-  box-sizing: border-box;
   min-height: 100vh;
 }
 @media (min-width: 768px) {
@@ -284,7 +283,6 @@ input::placeholder, textarea::placeholder, select::placeholder, button::placehol
   padding: 0.75rem;
   border: 1px solid #b1b1b1;
   border-radius: 8px;
-  box-sizing: border-box;
   margin: 0;
   font-size: 1rem;
 }

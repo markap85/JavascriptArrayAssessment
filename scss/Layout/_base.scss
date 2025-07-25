@@ -1,11 +1,15 @@
 // Base Styles for Layout
 
+// Global box-sizing
+* {
+  box-sizing: border-box;
+}
+
 .primary-container {
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
     padding: 1rem;
-    box-sizing: border-box;
     min-height: 100vh;
 
     @media (min-width: 768px) {
