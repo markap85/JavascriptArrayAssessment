@@ -9,7 +9,7 @@ async function setRandomPhoto() {
 
   try {
     const page = Math.floor(Math.random() * 10) + 1;
-    const res = await fetch(`https://picsum.photos/v2/list?page=${page}&limit=100`);
+    const res = await fetch(`https://picsum.photos/v2/list?page=${page}&limit=30`);
     const data = await res.json();
 
     if (Array.isArray(data) && data.length > 0) {
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
     randomBtn.addEventListener('click', setRandomPhoto);
   }
 
-  // Set a random photo on page load if needed
+  // Set a random photo on page load
   const img = document.querySelector('.primary-container img');
   if (img && !img.hasAttribute('data-picsum-id')) {
     setRandomPhoto();

@@ -42,12 +42,13 @@ window.emailCollections = {};
 window.lastCreatedEmail = null;
 
 document.addEventListener('DOMContentLoaded', function() {
-  const subscribeBtn = document.getElementById('button-subscribe');
+  const createcollectionBtn = document.getElementById('button-create-collection');
   const emailInput = document.querySelector('.Email input[type="email"]');
 
-  if (subscribeBtn && emailInput) {
-    subscribeBtn.addEventListener('click', function() {
+  if (createcollectionBtn && emailInput) {
+    createcollectionBtn.addEventListener('click', function() {
       const email = emailInput.value.trim();
+      
       // Remove any existing notification or error message
 
       const emailContainer = document.querySelector('.Email');
@@ -94,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
           }, 3000);
         }
       } else {
-        // Inject error message after the subscribe box
+        // Inject error message after the create collection box
         let errorMsg = document.createElement('div');
         errorMsg.className = 'email-error';
         errorMsg.textContent = 'Please enter a valid email.';
