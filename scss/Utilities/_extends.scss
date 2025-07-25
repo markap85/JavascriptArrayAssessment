@@ -1,3 +1,51 @@
+// Base Card Component
+%card-base {
+  background: $white;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  
+  @media (min-width: 769px) {
+    border-radius: 12px;
+  }
+}
+
+// Button Base Styles
+%button-base {
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    transform: translateY(-1px);
+  }
+}
+
+// Form Input Base
+%input-base {
+  padding: 0.75rem;
+  border: 1px solid $grey;
+  border-radius: 8px;
+  font-size: 1rem;
+  
+  &:focus {
+    outline: none;
+    border-color: $black;
+  }
+}
+
+// Image Hover Effect
+%image-hover {
+  transition: transform 0.2s ease;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+// Notification Base
 %notification-base {
   border-radius: 5px;
   padding: 0.5rem 1rem;

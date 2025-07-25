@@ -1,29 +1,21 @@
 .random-photo {
+    @extend %card-base;
     padding: 0;
-    background: $white;
-    border-radius: 8px;
     flex: 1;
     margin: 0;
     overflow: hidden;
-    transition: all 0.3s ease;
-
-    @media (min-width: 769px) {
-        border-radius: 12px;
-    }
     img {
+        @extend %image-hover;
         width: 100%;
         max-width: none;
         height: 200px;
         object-fit: cover;
         border: none;
         border-radius: 8px 8px 0 0;
-        transition: all 0.3s ease;
+        
         @media (min-width: 769px) {
             height: 300px;
             border-radius: 12px 12px 0 0;
-        }
-        &:hover {
-            transform: scale(1.05);
         }
     }
 }
@@ -56,26 +48,26 @@
         border-radius: 0 0 12px 12px;
     }
     button {
+        @extend %button-base;
         flex: 1 1 0;
-        padding: 0.75rem 1rem;
         background-color: $black;
         color: $white;
-        border: none;
         border-radius: 6px;
-        cursor: pointer;
-        transition: all 0.2s ease;
         font-size: 0.9rem;
+        
         @media (min-width: 480px) {
             padding: 0.75rem 1.5rem;
             font-size: 1rem;
         }
+        
         &:hover {
             background-color: $black-hover;
-            transform: translateY(-1px);
         }
+        
         &:active {
             transform: translateY(0);
         }
+        
         &#button-delete-collection,
         &#button-delete-all {
             background-color: $red;
@@ -85,7 +77,6 @@
         }
     }
 }
-
 
 
 // Already in library button state

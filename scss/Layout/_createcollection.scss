@@ -1,12 +1,6 @@
 // Email Form - Mobile First
 .Email {
-  background: $white;
-  border-radius: 8px; // Mobile: smaller radius
-  
-  // Tablet and up
-  @media (min-width: 769px) {
-    border-radius: 12px;
-  }
+  @extend %card-base;
   
   h2 {
     margin-top: 0;

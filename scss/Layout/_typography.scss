@@ -25,14 +25,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-// Typography - Mobile First
+// Typography
 h1 {
   font-family: 'Ephesis', cursive;
   @include fontstyles(1.25rem, 400, 1.4, 0.5rem, center);
   color: $text-primary;
   
-  
-  // Tablet and up
   @media (min-width: 769px) {
     font-size: 3rem;
     margin-bottom: 2rem;
@@ -43,7 +41,6 @@ h1 {
 h2 {
   @include fontstyles(1.25rem, 600, 1.4, 0.5rem, center);
 
-  // Tablet and up
   @media (min-width: 769px) {
     font-size: 1.5rem;
     text-align: left;
