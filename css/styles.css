@@ -1,46 +1,46 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Ephesis&display=swap");
-.Email, .random-photo {
+/* line 2, ../JavascriptArrayAssessment/scss/utilities/_extends.scss */
+.random-photo, .Email {
   background: #ffffff;
   border-radius: 8px;
-  transition: all 0.3s ease;
-}
-@media (min-width: 769px) {
-  .Email, .random-photo {
-    border-radius: 12px;
-  }
-}
+  transition: all 0.3s ease; }
+  @media (min-width: 769px) {
+    /* line 2, ../JavascriptArrayAssessment/scss/utilities/_extends.scss */
+    .random-photo, .Email {
+      border-radius: 12px; } }
 
+/* line 13, ../JavascriptArrayAssessment/scss/utilities/_extends.scss */
 .button-container button {
   padding: 0.75rem 1rem;
   border: none;
   border-radius: 8px;
   font-size: 1rem;
   cursor: pointer;
-  transition: all 0.2s ease;
-}
-.button-container button:hover {
-  transform: translateY(-1px);
-}
+  transition: all 0.2s ease; }
+  /* line 21, ../JavascriptArrayAssessment/scss/utilities/_extends.scss */
+  .button-container button:hover {
+    transform: translateY(-1px); }
 
+/* line 40, ../JavascriptArrayAssessment/scss/utilities/_extends.scss */
 .random-photo img {
-  transition: transform 0.2s ease;
-}
-.random-photo img:hover {
-  transform: scale(1.05);
-}
+  transition: transform 0.2s ease; }
+  /* line 43, ../JavascriptArrayAssessment/scss/utilities/_extends.scss */
+  .random-photo img:hover {
+    transform: scale(1.05); }
 
-#add-warning, .email-error, .email-info, .email-success {
+/* line 49, ../JavascriptArrayAssessment/scss/utilities/_extends.scss */
+.email-success, .email-info, .email-error, #add-warning {
   border-radius: 5px;
   padding: 0.5rem 1rem;
-  margin-top: 0.5rem;
-}
+  margin-top: 0.5rem; }
 
+/* line 5, ../JavascriptArrayAssessment/scss/Layout/_typography.scss */
 html {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  -moz-osx-font-smoothing: grayscale; }
 
+/* line 11, ../JavascriptArrayAssessment/scss/Layout/_typography.scss */
 body {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   font-size: 0.95rem;
@@ -50,9 +50,9 @@ body {
   text-align: left;
   color: #111827;
   margin: 0;
-  padding: 0;
-}
+  padding: 0; }
 
+/* line 20, ../JavascriptArrayAssessment/scss/Layout/_typography.scss */
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-size: 1rem;
@@ -61,148 +61,137 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0;
   text-align: left;
   letter-spacing: -0.025em;
-  color: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-}
+  color: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; }
 
+/* line 29, ../JavascriptArrayAssessment/scss/Layout/_typography.scss */
 h1 {
-  font-family: "Ephesis", cursive;
+  font-family: 'Ephesis', cursive;
   font-size: 1.25rem;
   font-weight: 400;
   line-height: 1.4;
   margin-bottom: 0.5rem;
   text-align: center;
-  color: #111827;
-}
-@media (min-width: 769px) {
-  h1 {
-    font-size: 3rem;
-    margin-bottom: 2rem;
-    text-align: left;
-  }
-}
+  color: #111827; }
+  @media (min-width: 769px) {
+    /* line 29, ../JavascriptArrayAssessment/scss/Layout/_typography.scss */
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      text-align: left; } }
 
+/* line 41, ../JavascriptArrayAssessment/scss/Layout/_typography.scss */
 h2 {
   font-size: 1.25rem;
   font-weight: 600;
   line-height: 1.4;
   margin-bottom: 0.5rem;
-  text-align: center;
-}
-@media (min-width: 769px) {
-  h2 {
-    font-size: 1.5rem;
-    text-align: left;
-  }
-}
+  text-align: center; }
+  @media (min-width: 769px) {
+    /* line 41, ../JavascriptArrayAssessment/scss/Layout/_typography.scss */
+    h2 {
+      font-size: 1.5rem;
+      text-align: left; } }
 
+/* line 51, ../JavascriptArrayAssessment/scss/Layout/_typography.scss */
 p {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.625;
   margin-bottom: 1rem;
   text-align: left;
-  color: #6b7280;
-}
+  color: #6b7280; }
 
+/* line 57, ../JavascriptArrayAssessment/scss/Layout/_typography.scss */
 input, textarea, select, button {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
   margin-bottom: 0;
-  text-align: left;
-}
-input::-moz-placeholder, textarea::-moz-placeholder, select::-moz-placeholder, button::-moz-placeholder {
-  color: #6b7280;
-}
-input::placeholder, textarea::placeholder, select::placeholder, button::placeholder {
-  color: #6b7280;
-}
+  text-align: left; }
+  /* line 61, ../JavascriptArrayAssessment/scss/Layout/_typography.scss */
+  input::placeholder, textarea::placeholder, select::placeholder, button::placeholder {
+    color: #6b7280; }
 
+/* line 4, ../JavascriptArrayAssessment/scss/Layout/_base.scss */
 * {
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
+/* line 8, ../JavascriptArrayAssessment/scss/Layout/_base.scss */
 .primary-container {
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
   padding: 1rem;
-  min-height: 100vh;
-}
-@media (min-width: 768px) {
-  .primary-container {
-    padding: 2rem;
-  }
-}
+  min-height: 100vh; }
+  @media (min-width: 768px) {
+    /* line 8, ../JavascriptArrayAssessment/scss/Layout/_base.scss */
+    .primary-container {
+      padding: 2rem; } }
 
+/* line 20, ../JavascriptArrayAssessment/scss/Layout/_base.scss */
 .main-layout {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
-  align-items: start;
-}
-@media (min-width: 969px) {
-  .main-layout {
-    grid-template-columns: 2fr 1fr;
-    gap: 2rem;
-  }
-}
+  align-items: start; }
+  @media (min-width: 969px) {
+    /* line 20, ../JavascriptArrayAssessment/scss/Layout/_base.scss */
+    .main-layout {
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem; } }
 
+/* line 32, ../JavascriptArrayAssessment/scss/Layout/_base.scss */
 .left-column {
   display: flex;
   flex-direction: column;
   gap: 0rem;
-  grid-column: 1;
-}
-@media (min-width: 769px) {
-  .left-column {
-    gap: 0.5rem;
-  }
-}
+  grid-column: 1; }
+  @media (min-width: 769px) {
+    /* line 32, ../JavascriptArrayAssessment/scss/Layout/_base.scss */
+    .left-column {
+      gap: 0.5rem; } }
 
+/* line 44, ../JavascriptArrayAssessment/scss/Layout/_base.scss */
 .clearfix::after {
   content: "";
   display: table;
-  clear: both;
-}
+  clear: both; }
 
+/* line 1, ../JavascriptArrayAssessment/scss/Layout/_photocontainer.scss */
 .random-photo {
   padding: 0;
   flex: 1;
   margin: 0;
-  overflow: hidden;
-}
-.random-photo img {
-  width: 100%;
-  max-width: none;
-  height: 200px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  border: none;
-  border-radius: 8px 8px 0 0;
-}
-@media (min-width: 769px) {
+  overflow: hidden; }
+  /* line 7, ../JavascriptArrayAssessment/scss/Layout/_photocontainer.scss */
   .random-photo img {
-    height: 300px;
-    border-radius: 12px 12px 0 0;
-  }
-}
+    width: 100%;
+    max-width: none;
+    height: 200px;
+    object-fit: cover;
+    border: none;
+    border-radius: 8px 8px 0 0; }
+    @media (min-width: 769px) {
+      /* line 7, ../JavascriptArrayAssessment/scss/Layout/_photocontainer.scss */
+      .random-photo img {
+        height: 300px;
+        border-radius: 12px 12px 0 0; } }
 
+/* line 23, ../JavascriptArrayAssessment/scss/Layout/_photocontainer.scss */
 #imagename {
   padding: 0.75rem 1rem;
   text-align: center;
   margin: 0;
   line-height: 1.4;
-  font-style: italic;
-}
-@media (min-width: 769px) {
-  #imagename {
-    padding: 1rem 0;
-    text-align: left;
-  }
-}
+  font-style: italic; }
+  @media (min-width: 769px) {
+    /* line 23, ../JavascriptArrayAssessment/scss/Layout/_photocontainer.scss */
+    #imagename {
+      padding: 1rem 0;
+      text-align: left; } }
 
+/* line 35, ../JavascriptArrayAssessment/scss/Layout/_photocontainer.scss */
 .button-container {
   display: flex;
   flex-direction: column;
@@ -211,42 +200,40 @@ input::placeholder, textarea::placeholder, select::placeholder, button::placehol
   margin: 0;
   padding: 0.75rem 1rem;
   background: #ffffff;
-  border-radius: 0 0 8px 8px;
-}
-@media (min-width: 480px) {
-  .button-container {
-    flex-direction: row;
-    gap: 0.75rem;
-    padding: 1rem 0;
-    border-radius: 0 0 12px 12px;
-  }
-}
-.button-container button {
-  flex: 1 1 0;
-  background-color: #000000;
-  color: #ffffff;
-  border-radius: 6px;
-  font-size: 0.9rem;
-}
-@media (min-width: 480px) {
+  border-radius: 0 0 8px 8px; }
+  @media (min-width: 480px) {
+    /* line 35, ../JavascriptArrayAssessment/scss/Layout/_photocontainer.scss */
+    .button-container {
+      flex-direction: row;
+      gap: 0.75rem;
+      padding: 1rem 0;
+      border-radius: 0 0 12px 12px; } }
+  /* line 50, ../JavascriptArrayAssessment/scss/Layout/_photocontainer.scss */
   .button-container button {
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-  }
-}
-.button-container button:hover {
-  background-color: #333333;
-}
-.button-container button:active {
-  transform: translateY(0);
-}
-.button-container button#button-delete-collection, .button-container button#button-delete-all {
-  background-color: rgba(239, 68, 68, 0.5568627451);
-}
-.button-container button#button-delete-collection:hover, .button-container button#button-delete-all:hover {
-  background-color: rgba(188.842364532, 16.157635468, 16.157635468, 0.5568627451);
-}
+    flex: 1 1 0;
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 6px;
+    font-size: 0.9rem; }
+    @media (min-width: 480px) {
+      /* line 50, ../JavascriptArrayAssessment/scss/Layout/_photocontainer.scss */
+      .button-container button {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem; } }
+    /* line 63, ../JavascriptArrayAssessment/scss/Layout/_photocontainer.scss */
+    .button-container button:hover {
+      background-color: #333333; }
+    /* line 67, ../JavascriptArrayAssessment/scss/Layout/_photocontainer.scss */
+    .button-container button:active {
+      transform: translateY(0); }
+    /* line 71, ../JavascriptArrayAssessment/scss/Layout/_photocontainer.scss */
+    .button-container button#button-delete-collection, .button-container button#button-delete-all {
+      background-color: #ef44448e; }
+      /* line 74, ../JavascriptArrayAssessment/scss/Layout/_photocontainer.scss */
+      .button-container button#button-delete-collection:hover, .button-container button#button-delete-all:hover {
+        background-color: rgba(189, 16, 16, 0.556863); }
 
+/* line 83, ../JavascriptArrayAssessment/scss/Layout/_photocontainer.scss */
 .already-in-library {
   opacity: 0.6 !important;
   background: #e5e7eb !important;
@@ -254,46 +241,48 @@ input::placeholder, textarea::placeholder, select::placeholder, button::placehol
   border-color: #d1d5db !important;
   cursor: not-allowed !important;
   pointer-events: none !important;
-  transition: background 0.2s, color 0.2s, border-color 0.2s, opacity 0.2s !important;
-}
-.already-in-library:hover {
-  background: #e5e7eb !important;
-  color: #6b7280 !important;
-  transform: none !important;
-}
-.already-in-library:active {
-  transform: none !important;
-}
+  transition: background 0.2s, color 0.2s, border-color 0.2s, opacity 0.2s !important; }
+  /* line 93, ../JavascriptArrayAssessment/scss/Layout/_photocontainer.scss */
+  .already-in-library:hover {
+    background: #e5e7eb !important;
+    color: #6b7280 !important;
+    transform: none !important; }
+  /* line 99, ../JavascriptArrayAssessment/scss/Layout/_photocontainer.scss */
+  .already-in-library:active {
+    transform: none !important; }
 
+/* line 5, ../JavascriptArrayAssessment/scss/Layout/_createcollection.scss */
 .Email h2 {
   margin-top: 0;
-  margin-bottom: 0.5rem;
-}
+  margin-bottom: 0.5rem; }
+
+/* line 10, ../JavascriptArrayAssessment/scss/Layout/_createcollection.scss */
 .Email .email-form {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
   align-items: stretch;
-  margin: 1rem 0 0 0;
-}
-@media (min-width: 480px) {
-  .Email .email-form {
-    flex-direction: row;
-    align-items: center;
-  }
-}
+  margin: 1rem 0 0 0; }
+  @media (min-width: 480px) {
+    /* line 10, ../JavascriptArrayAssessment/scss/Layout/_createcollection.scss */
+    .Email .email-form {
+      flex-direction: row;
+      align-items: center; } }
+
+/* line 24, ../JavascriptArrayAssessment/scss/Layout/_createcollection.scss */
 .Email input {
   flex: 1;
   padding: 0.75rem;
   border: 1px solid #b1b1b1;
   border-radius: 8px;
   margin: 0;
-  font-size: 1rem;
-}
-.Email input:focus {
-  outline: none;
-  border-color: #000000;
-}
+  font-size: 1rem; }
+  /* line 32, ../JavascriptArrayAssessment/scss/Layout/_createcollection.scss */
+  .Email input:focus {
+    outline: none;
+    border-color: #000000; }
+
+/* line 38, ../JavascriptArrayAssessment/scss/Layout/_createcollection.scss */
 .Email button {
   padding: 0.75rem 1.5rem;
   background-color: #000000;
@@ -303,191 +292,183 @@ input::placeholder, textarea::placeholder, select::placeholder, button::placehol
   cursor: pointer;
   flex-shrink: 0;
   transition: all 0.2s ease;
-  font-size: 1rem;
-}
-.Email button:hover {
-  background-color: #333333;
-  transform: translateY(-1px);
-}
-.Email button:active {
-  transform: translateY(0);
-}
+  font-size: 1rem; }
+  /* line 49, ../JavascriptArrayAssessment/scss/Layout/_createcollection.scss */
+  .Email button:hover {
+    background-color: #333333;
+    transform: translateY(-1px); }
+  /* line 54, ../JavascriptArrayAssessment/scss/Layout/_createcollection.scss */
+  .Email button:active {
+    transform: translateY(0); }
 
+/* line 1, ../JavascriptArrayAssessment/scss/Layout/_mycollections.scss */
 .Collections {
   padding: 1rem;
   grid-column: 1;
-  height: -moz-fit-content;
-  height: fit-content;
-}
-@media (min-width: 969px) {
-  .Collections {
-    padding: 0 2rem;
-    grid-column: 2;
-  }
-}
-.Collections h2 {
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
-.Collections p {
-  margin-bottom: 1.5rem;
-}
-.Collections .collections-dropdown {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #6b7280;
-  border-radius: 8px;
-  margin-bottom: 1.5rem;
-  background: #ffffff;
-  font-size: 1rem;
-}
-@media (min-width: 769px) {
+  height: fit-content; }
+  @media (min-width: 969px) {
+    /* line 1, ../JavascriptArrayAssessment/scss/Layout/_mycollections.scss */
+    .Collections {
+      padding: 0 2rem;
+      grid-column: 2; } }
+  /* line 9, ../JavascriptArrayAssessment/scss/Layout/_mycollections.scss */
+  .Collections h2 {
+    margin-top: 0;
+    margin-bottom: 1rem; }
+  /* line 13, ../JavascriptArrayAssessment/scss/Layout/_mycollections.scss */
+  .Collections p {
+    margin-bottom: 1.5rem; }
+  /* line 16, ../JavascriptArrayAssessment/scss/Layout/_mycollections.scss */
   .Collections .collections-dropdown {
-    border-radius: 0 12px 0 0;
-  }
-}
-.Collections .collections-dropdown:focus {
-  outline: none;
-  border-color: #000000;
-}
-.Collections .button-container {
-  padding: 0;
-  margin-bottom: 1rem;
-  background: transparent;
-  border-radius: 0;
-  gap: 0.5rem;
-  flex-direction: column;
-}
-@media (min-width: 480px) {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #6b7280;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    background: #ffffff;
+    font-size: 1rem; }
+    @media (min-width: 769px) {
+      /* line 16, ../JavascriptArrayAssessment/scss/Layout/_mycollections.scss */
+      .Collections .collections-dropdown {
+        border-radius: 0 12px 0 0; } }
+    /* line 27, ../JavascriptArrayAssessment/scss/Layout/_mycollections.scss */
+    .Collections .collections-dropdown:focus {
+      outline: none;
+      border-color: #000000; }
+  /* line 32, ../JavascriptArrayAssessment/scss/Layout/_mycollections.scss */
   .Collections .button-container {
-    flex-direction: row;
-  }
-}
-.Collections .button-container #button-delete-collection,
-.Collections .button-container #button-delete-all {
-  background-color: #fef2f2;
-  color: rgba(239, 68, 68, 0.5568627451);
-}
-.Collections .button-container #button-delete-collection:hover,
-.Collections .button-container #button-delete-all:hover {
-  background-color: rgba(188.842364532, 16.157635468, 16.157635468, 0.5568627451);
-  color: #ffffff;
-}
+    padding: 0;
+    margin-bottom: 1rem;
+    background: transparent;
+    border-radius: 0;
+    gap: 0.5rem;
+    flex-direction: column; }
+    @media (min-width: 480px) {
+      /* line 32, ../JavascriptArrayAssessment/scss/Layout/_mycollections.scss */
+      .Collections .button-container {
+        flex-direction: row; } }
+    /* line 43, ../JavascriptArrayAssessment/scss/Layout/_mycollections.scss */
+    .Collections .button-container #button-delete-collection,
+    .Collections .button-container #button-delete-all {
+      background-color: #fef2f2;
+      color: #ef44448e; }
+      /* line 47, ../JavascriptArrayAssessment/scss/Layout/_mycollections.scss */
+      .Collections .button-container #button-delete-collection:hover,
+      .Collections .button-container #button-delete-all:hover {
+        background-color: rgba(189, 16, 16, 0.556863);
+        color: #ffffff; }
 
+/* line 1, ../JavascriptArrayAssessment/scss/Layout/_collections-items.scss */
 .collections-list {
   list-style: none;
   padding: 0;
-  margin: 0;
-}
-.collections-list li {
-  margin-bottom: 1rem;
-  font-weight: 500;
-  color: #111827;
-}
-.collections-list .image-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
-  margin-top: 0.5rem;
-}
-@media (min-width: 480px) {
+  margin: 0; }
+  /* line 5, ../JavascriptArrayAssessment/scss/Layout/_collections-items.scss */
+  .collections-list li {
+    margin-bottom: 1rem;
+    font-weight: 500;
+    color: #111827; }
+  /* line 10, ../JavascriptArrayAssessment/scss/Layout/_collections-items.scss */
   .collections-list .image-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
-  }
-}
-@media (min-width: 769px) {
-  .collections-list .image-grid {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  }
-}
-.collections-list .image-wrapper {
-  position: relative;
-  display: block;
-  border-radius: 6px;
-  overflow: hidden;
-  transition: transform 0.2s ease;
-  max-width: 180px;
-  justify-self: start;
-}
-.collections-list .image-wrapper:hover {
-  transform: scale(1.02);
-}
-.collections-list .image-wrapper img {
-  width: 100%;
-  height: 120px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  display: block;
-}
-@media (min-width: 769px) {
-  .collections-list .image-wrapper img {
-    width: 200px;
-    height: 100px;
-  }
-}
-.collections-list .image-wrapper .remove-btn {
-  position: absolute;
-  top: 6px;
-  right: 6px;
-  background: rgba(0, 0, 0, 0.8);
-  color: #ffffff;
-  border: none;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
-  font-size: 14px;
-  line-height: 1;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
-}
-@media (min-width: 769px) {
-  .collections-list .image-wrapper .remove-btn {
-    top: 4px;
-    right: 4px;
-    width: 20px;
-    height: 20px;
-    font-size: 12px;
-    background: rgba(0, 0, 0, 0.7);
-  }
-}
-.collections-list .image-wrapper .remove-btn:hover {
-  background: #dc2626;
-  transform: scale(1.1);
-}
-.collections-list .image-wrapper .remove-btn:active {
-  transform: scale(0.95);
-}
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 0.5rem; }
+    @media (min-width: 480px) {
+      /* line 10, ../JavascriptArrayAssessment/scss/Layout/_collections-items.scss */
+      .collections-list .image-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px; } }
+    @media (min-width: 769px) {
+      /* line 10, ../JavascriptArrayAssessment/scss/Layout/_collections-items.scss */
+      .collections-list .image-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); } }
+  /* line 23, ../JavascriptArrayAssessment/scss/Layout/_collections-items.scss */
+  .collections-list .image-wrapper {
+    position: relative;
+    display: block;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+    max-width: 180px;
+    justify-self: start; }
+    /* line 31, ../JavascriptArrayAssessment/scss/Layout/_collections-items.scss */
+    .collections-list .image-wrapper:hover {
+      transform: scale(1.02); }
+    /* line 34, ../JavascriptArrayAssessment/scss/Layout/_collections-items.scss */
+    .collections-list .image-wrapper img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      display: block; }
+      @media (min-width: 769px) {
+        /* line 34, ../JavascriptArrayAssessment/scss/Layout/_collections-items.scss */
+        .collections-list .image-wrapper img {
+          width: 200px;
+          height: 100px; } }
+    /* line 44, ../JavascriptArrayAssessment/scss/Layout/_collections-items.scss */
+    .collections-list .image-wrapper .remove-btn {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      background: rgba(0, 0, 0, 0.8);
+      color: #ffffff;
+      border: none;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      font-size: 14px;
+      line-height: 1;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease; }
+      @media (min-width: 769px) {
+        /* line 44, ../JavascriptArrayAssessment/scss/Layout/_collections-items.scss */
+        .collections-list .image-wrapper .remove-btn {
+          top: 4px;
+          right: 4px;
+          width: 20px;
+          height: 20px;
+          font-size: 12px;
+          background: rgba(0, 0, 0, 0.7); } }
+      /* line 70, ../JavascriptArrayAssessment/scss/Layout/_collections-items.scss */
+      .collections-list .image-wrapper .remove-btn:hover {
+        background: #dc2626;
+        transform: scale(1.1); }
+      /* line 74, ../JavascriptArrayAssessment/scss/Layout/_collections-items.scss */
+      .collections-list .image-wrapper .remove-btn:active {
+        transform: scale(0.95); }
 
+/* line 3, ../JavascriptArrayAssessment/scss/Layout/_notifications.scss */
 .email-success {
   background: #10b981;
-  color: #ffffff;
-}
+  color: #ffffff; }
 
+/* line 9, ../JavascriptArrayAssessment/scss/Layout/_notifications.scss */
 .email-info {
   background: #f59e0b;
-  color: #111827;
-}
+  color: #111827; }
 
+/* line 15, ../JavascriptArrayAssessment/scss/Layout/_notifications.scss */
 .email-error {
   background: #dc2626;
-  color: #ffffff;
-}
+  color: #ffffff; }
 
+/* line 23, ../JavascriptArrayAssessment/scss/Layout/_notifications.scss */
 #add-warning {
   color: transparent;
   background: transparent;
-  transition: color 0.3s ease;
-}
-#add-warning.warning-visible {
-  background: #dc2626;
-  color: #ffffff;
-}
-#add-warning.warning-hidden {
-  color: transparent;
-  background: transparent;
-}/*# sourceMappingURL=styles.css.map */
+  transition: color 0.3s ease; }
+  /* line 29, ../JavascriptArrayAssessment/scss/Layout/_notifications.scss */
+  #add-warning.warning-visible {
+    background: #dc2626;
+    color: #ffffff; }
+  /* line 34, ../JavascriptArrayAssessment/scss/Layout/_notifications.scss */
+  #add-warning.warning-hidden {
+    color: transparent;
+    background: transparent; }
+
+/*# sourceMappingURL=styles.css.map */
