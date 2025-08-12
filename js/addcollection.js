@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Reset to default if missing data
     if (!selectedEmail || !imageId || !window.emailCollections?.[selectedEmail]) {
       addBtn.textContent = 'Add to Collection';
-      addBtn.classList.remove('already-in-library');
+      addBtn.classList.remove('already-in-library', 'button-loading');
       return;
     }
     
@@ -25,10 +25,25 @@ document.addEventListener('DOMContentLoaded', function() {
     const isInCollection = window.emailCollections[selectedEmail].includes(imageId);
     addBtn.textContent = isInCollection ? 'Added' : 'Add to Collection';
     addBtn.classList.toggle('already-in-library', isInCollection);
+    addBtn.classList.remove('button-loading');
+  }
+
+  // Loading state functions
+  function setButtonLoading() {
+    addBtn.textContent = 'Loading...';
+    addBtn.classList.add('button-loading');
+    addBtn.classList.remove('already-in-library');
+  }
+
+  function clearButtonLoading() {
+    addBtn.classList.remove('button-loading');
+    updateButtonState();
   }
 
   // Make globally available for other scripts
   window.checkAddButtonState = updateButtonState;
+  window.setAddButtonLoading = setButtonLoading;
+  window.clearAddButtonLoading = clearButtonLoading;
 
   // Show warning message
   function showWarning(message) {
@@ -95,8 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Reset button on random photo click
   if (randomBtn) {
     randomBtn.addEventListener('click', function() {
-      addBtn.textContent = 'Add to Collection';
-      addBtn.classList.remove('already-in-library');
+      setButtonLoading();
     });
   }
 

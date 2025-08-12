@@ -251,6 +251,24 @@ input, textarea, select, button {
   .already-in-library:active {
     transform: none !important; }
 
+/* line 105, ../JavascriptArrayAssessment/scss/Layout/_photocontainer.scss */
+.button-loading {
+  opacity: 0.6 !important;
+  background: #e5e7eb !important;
+  color: #6b7280 !important;
+  border-color: #d1d5db !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, opacity 0.2s !important; }
+  /* line 115, ../JavascriptArrayAssessment/scss/Layout/_photocontainer.scss */
+  .button-loading:hover {
+    background: #e5e7eb !important;
+    color: #6b7280 !important;
+    transform: none !important; }
+  /* line 121, ../JavascriptArrayAssessment/scss/Layout/_photocontainer.scss */
+  .button-loading:active {
+    transform: none !important; }
+
 /* line 5, ../JavascriptArrayAssessment/scss/Layout/_createcollection.scss */
 .Email h2 {
   margin-top: 0;

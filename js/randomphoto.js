@@ -26,11 +26,15 @@ async function setRandomPhoto() {
       randomBtn.textContent = 'Random Photo';
       // Update add button state after image loads
       window.checkAddButtonState?.();
+      // Clear add button loading state
+      window.clearAddButtonLoading?.();
     };
     
     img.onerror = () => {
       randomBtn.textContent = 'Random Photo';
       console.error('Failed to load image');
+      // Clear add button loading state
+      window.clearAddButtonLoading?.();
     };
 
     // Set new image
@@ -45,6 +49,8 @@ async function setRandomPhoto() {
   } catch (error) {
     console.error('Error fetching photo:', error);
     randomBtn.textContent = 'Random Photo';
+    // Clear add button loading state
+    window.clearAddButtonLoading?.();
   }
 }
 

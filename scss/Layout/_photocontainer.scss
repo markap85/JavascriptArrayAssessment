@@ -100,3 +100,25 @@
     transform: none !important;
   }
 }
+
+// Loading state for button
+.button-loading {
+  opacity: 0.6 !important;
+  background: #e5e7eb !important;
+  color: #6b7280 !important;
+  border-color: #d1d5db !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, opacity 0.2s !important;
+  
+  // Override any hover effects when loading
+  &:hover {
+    background: #e5e7eb !important;
+    color: #6b7280 !important;
+    transform: none !important;
+  }
+  
+  &:active {
+    transform: none !important;
+  }
+}
